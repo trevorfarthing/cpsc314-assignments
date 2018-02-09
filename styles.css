@@ -1,0 +1,78 @@
+html {
+  font-family: ubunturegular;
+}
+.navHead {
+  /*float:right;*/
+  position:absolute;
+  right:5px;
+  padding-top: 10px;
+  padding-right:5px;
+}
+.navLinks {
+  margin-left:10px;
+}
+.headerText {
+  text-align: center;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.aboutMe {
+  background: #bdf1f9;
+  padding: 15px 20px 15px 20px;
+  text-align:center;
+}
+.imageBlock {
+  height: 400px;
+  padding:25px 50px 25px 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#image1 {
+  vertical-align: middle;
+  margin-right: 100px;
+  max-width: 100%;
+  height: auto;
+}
+#image2 {
+  vertical-align: middle;
+  margin-left: 100px;
+}
+.buttonBlock {
+  background: #233d68;
+  height: 300px;
+}
+.button {
+  border: solid 1px white;
+  border-radius: 15%;
+  color: white;
+  height: 50px;
+  width: 80px;
+  line-height: 50px;
+  text-align:center;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+footer {
+  background:black;
+  color:white;
+  padding: 10px 10px;
+}
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('ubuntu-regular.ttf');
+    src: url('ubuntu-regular-webfont.eot');
+    src: url('ubuntu-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ubuntu-regular-webfont.woff2') format('woff2'),
+         url('ubuntu-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
