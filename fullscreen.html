@@ -7,14 +7,32 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="outerBlock">
+    <div class="outerBlock" id="backgroundBlock">
       <nav class="fullScreenNav fadeInNormal">
         <a href="index.html" class="fullScreenLink">Home</a>
         <a href="http://www.google.com" class="fullScreenLink">About</a>
         <a href="http://www.google.com" class="fullScreenLink">Shop</a>
+        <span class="fullScreenLink" onclick="toggleNight()" id="nightToggle">Night</span>
+        <script>
+        var isNight = false;
+        function toggleNight() {
+          console.log("here");
+            isNight = !isNight;
+            if(isNight) {
+              document.getElementById("backgroundBlock").style.backgroundImage = "url(night_nature.jpg)";
+              document.getElementById("nightToggle").innerHTML = "Day";
+            }
+            else {
+              document.getElementById("backgroundBlock").style.background = "linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%), url('nature.jpg')";
+              document.getElementById("backgroundBlock").style.backgroundSize = 'cover';
+              document.getElementById("backgroundBlock").style.backgroundPosition = 'center';
+              document.getElementById("nightToggle").innerHTML = "Night";
+            }
+        }
+</script>
       </nav>
       <div class="content">
-        <div class="title fadeInNormal">
+        <div class="title fadeAndCompress">
           Step into nature.
         </div>
         <div class="info fadeInNormal">
