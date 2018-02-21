@@ -2,3 +2,157 @@ html, body {
   font-family: ubunturegular;
   height: 100%;
 }
+@font-face {
+    font-family: 'ubunturegular';
+    src: url('fonts/ubuntu-regular.ttf');
+    src: url('fonts/ubuntu-regular-webfont.eot');
+    src: url('fonts/ubuntu-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ubuntu-regular-webfont.woff2') format('woff2'),
+         url('fonts/ubuntu-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+header {
+  background: #2f3238;
+  height:50px;
+}
+.navHead {
+  position:absolute;
+  left:5px;
+  line-height: 50px;
+  margin-left: 5px;
+}
+.navLinks {
+  margin-right:20px;
+  color:white;
+  text-decoration: none;
+}
+#pawIcon {
+  color:white;
+  position:absolute;
+  right:5px;
+  line-height: 50px;
+  font-size: 2em;
+  margin-right: 5px;
+}
+h1 {
+  font-size: 2.5em;
+}
+.containBlock {
+  position: relative;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.mainBlock {
+  background: lightgray;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom:50px;
+}
+.mainParagraph {
+  color:white;
+  margin-top:15px;
+  padding:5px;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  line-height: 25px;
+}
+.enterButton {
+  background: #efefef;
+  position:relative;
+  border: 2px solid #2f3238;
+  padding: 5px 15px;
+  border-radius:5px;
+  left:50%;
+  transform:translateX(-50%);
+  margin-top:15px;
+  width:100px;
+}
+.enterButton:hover {
+  background: #2f3238;
+  color:white;
+  border: 2px solid white;
+}
+.cardBlock {
+  position:relative;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card {
+  width:30%;
+  text-align: center;
+  position: relative;
+}
+.personIcon {
+  font-size:2.5em;
+  line-height: 100px !important;
+}
+.iconContainer {
+  margin-top: 30px;
+  border:2px solid black;
+  border-radius:50%;
+  text-align: center;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  width:100px;
+  height:100px;
+}
+.cardParagraph {
+  margin-top:30px;
+  line-height: 20px;
+}
+.cardButton {
+  background: lightgray;
+  border: 2px solid #2f3238;
+  padding: 5px 15px;
+  border-radius:5px;
+  margin-top:30px;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+}
+.cardButton:hover {
+  background: #2f3238;
+  color:white;
+  border: 2px solid lightgray;
+}
+footer {
+  margin-top:100px;
+  background: #2f3238;
+  height: 30px;
+  position: static;
+}
+
+/* Mobile responsiveness breakpoint */
+@media all and (max-width:768px) {
+  .navLinks {
+    font-size:0.75em;
+  }
+  h1 {
+    font-size: 1.75em;
+  }
+  .mainParagraph {
+    font-size:1em;
+  }
+  .enterButton {
+    font-size: 0.75em;
+    width:75px;
+  }
+  .cardParagraph {
+    font-size:0.75em;
+    padding:0px 100px;
+  }
+  .card {
+    width:100% !important;
+    margin-bottom: 100px;
+  }
+  .cardButton {
+    font-size: 0.75em;
+  }
+  footer {
+    margin-top:20px;
+  }
+}
