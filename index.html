@@ -20,11 +20,13 @@
       <div class="containBlock">
         <form>
           <label for="firstname">First Name</label>
-          <input name="first-name" type="text" id="firstname" placeholder="e.g. John">
+          <input name="first-name" type="text" id="firstname" placeholder="e.g. John" class="fullInput">
           <label for="lastname">Last Name</label>
-          <input name="last-name" type="text" id="lastname" placeholder="e.g. Smith">
+          <input name="last-name" type="text" id="lastname" placeholder="e.g. Smith" class="fullInput">
           <label for="email">Email</label>
-          <input name="email" type="email" id="email" placeholder="e.g. jsmith@gmail.com">
+          <input name="email" type="email" id="email" placeholder="e.g. jsmith@gmail.com" class="fullInput">
+          <label for="phone">Phone Number</label>
+          <input name="phone" type="number" id="phone" placeholder="e.g. 206-123-6532" class="fullInput">
           <div class="radioBlock">
             <label for="frontend" class="radioLabel">Frontend</label>
             <input name="developer" type="radio" id="frontend">
@@ -34,9 +36,9 @@
             <input name="developer" type="radio" id="both">
           </div>
           <label for="skills">Relevant Skills/Experience</label>
-          <textarea name="skills" cols="20" rows="7" maxlength="1000" id="skills" placeholder="e.g. proficient in Java, developed iOS apps, etc."></textarea>
+          <textarea name="skills" cols="20" rows="7" maxlength="1000" id="skills" placeholder="e.g. proficient in Java, developed iOS apps, etc." class="fullInput"></textarea>
           <label for="skills">How did you hear about us?</label>
-          <select name="hearaboutus" id="hearaboutus">
+          <select name="hearaboutus" id="hearaboutus" class="fullInput">
             <option></option>
             <option>Google search</option>
             <option>Online ad</option>
@@ -47,8 +49,8 @@
             </option>Other</option>
           </select>
           <label for="other">Other (please specify)</label>
-          <input name="other" type="text" id="other">
-          <input type="submit">
+          <input name="other" type="text" id="other" class="fullInput">
+          <input type="submit" class="fullInput">
         </form>
       </div>
     </section>
