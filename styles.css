@@ -1,0 +1,568 @@
+/* TODO:
+  - Make nav header float at top after scrolling down a certain amount
+  - Open youtube videos in section or in a modal
+  - Fix laggy parallax scrolling, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
+  - Add cool page transitions
+  - Change contact form to have better transitions on focus
+
+ */
+html, body {
+  font-family: khularegular;
+  height: 100%;
+  /*overflow-x: hidden;*/
+}
+
+/*
+FONTS
+ */
+@font-face {
+    font-family: 'khulabold';
+    src: url('fonts/Khula/khula-bold-webfont.ttf');
+    src: url('fonts/Khula/khula-bold-webfont.eot');
+    src: url('fonts/Khula/khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-bold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulaextrabold';
+    src: url('fonts/Khula/khula-extrabold-webfont.ttf');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulalight';
+    src: url('fonts/Khula/khula-light-webfont.ttf');
+    src: url('fonts/Khula/khula-light-webfont.eot');
+    src: url('fonts/Khula/khula-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-light-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khularegular';
+    src: url('fonts/Khula/khula-regular-webfont.ttf');
+    src: url('fonts/Khula/khula-regular-webfont.eot');
+    src: url('fonts/Khula/khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-regular-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulasemibold';
+    src: url('fonts/Khula/khula-semibold-webfont.ttf');
+    src: url('fonts/Khula/khula-semibold-webfont.eot');
+    src: url('fonts/Khula/khula-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-semibold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+ANIMATIONS
+*/
+
+/* Fade animation */
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Typewriter animation */
+@-webkit-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@-moz-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@-o-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Slide from right animation */
+@-webkit-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-moz-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-o-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+
+.homeOuterBlock {
+  height:100%;
+  background:url("assets/joshuatree2.jpg");
+  background-color:black;
+  background-position:0px -275px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+}
+header {
+  padding: 40px;
+}
+.fadeIn {
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity:0;
+}
+.animateDelay {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+}
+nav {
+  position: absolute;
+  right: 50px;
+}
+.homeNav {
+  position: absolute;
+  right: -200px /*-200%*/;
+  /* Fade animations */
+  -webkit-animation: slide-from-right 2s 1;
+  -moz-animation: slide-from-right 3s 1;
+  -o-animation: slide-from-right 3s 1;
+  animation: slide-from-right 2s 1;
+
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.navLink {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size:1.2em;
+  letter-spacing: 5px;
+  transition: all 0.5s ease;
+}
+.navLink:hover {
+  text-shadow: 2px 5px 10px black;
+}
+.homeText {
+  color:white;
+  position:absolute;
+  right: 5%;
+  top:50%;
+  transform: translate(-25%,-50%);
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size:3em;
+}
+h3 {
+  font-size: 2em;
+}
+.homeHeading {
+  text-shadow: 2px 5px 10px black;
+}
+.homeFooter {
+  background:rgba(0,0,0,0.2);
+  position:fixed;
+  bottom:0;
+}
+footer {
+  padding:10px;
+  width:100%;
+  color: white;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+.fa-facebook, .fa-linkedin {
+  font-size: 1.75em;
+  margin-right: 10px;
+  top:4px;
+  position: relative;
+}
+.socialLink:hover {
+  color:#a8a8a8;
+  cursor: pointer;
+}
+.socialLink {
+  color:white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  /*margin: 0 auto;*/
+  letter-spacing: 2px;
+  animation:
+    typewriter 1.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  -o-animation-delay:3s;
+  animation-delay: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  width:0px;
+}
+
+/*
+CONTACT FORM STYLES
+*/
+.contactOuterBlock {
+  height:100%;
+  background:url("assets/beach.jpg");
+  background-color:black;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.containBlock {
+  position: relative;
+  margin: 0 auto;
+  max-width: 300px;
+}
+.mainContactBlock {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:100%;
+}
+input, textarea {
+  margin: 10px 0px 20px;
+  padding:10px;
+  border-radius: 5px;
+  font-size:1em;
+  display: block;
+  width:100%;
+  box-sizing: border-box;
+  border: none;
+  color:white;
+  box-shadow: 0px 0px 2px white;
+}
+textarea {
+  resize:none;
+}
+label {
+  color:white;
+}
+input, textarea {
+  background: rgba(0,0,0,0.3);
+}
+input[type="submit"] {
+  width: 200px;
+  margin:0 auto;
+  background: rgba(0,0,0,0.5);
+  transition:box-shadow 0.5s ease 0s;
+}
+input[type="submit"]:hover {
+  box-shadow: 0px 0px 5px 2px white;
+  cursor:pointer;
+}
+input::placeholder, textarea::placeholder {
+  color:#a8a8a8;
+}
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px 2px white;
+}
+.contactHeading {
+  color:white;
+  text-shadow: 2px 5px 10px black;
+  text-align: center;
+  padding:20px 0px 40px;
+}
+.aboutOuterBlock {
+  background: #1e2126;
+}
+.mainContent {
+  width:100%;
+  padding: 50px 50px;
+  box-sizing: border-box;
+  color:white;
+}
+.aboutHeading {
+  margin:0px;
+  width:50%;
+  display: inline-block;
+}
+.profileImage {
+  background-size: 600px;
+  margin:0px;
+  display: inline-block;
+  position:absolute;
+}
+p {
+  padding:30px 0px;
+  letter-spacing: 1px;
+  line-height:25px;
+}
+.grayShadow:hover {
+  text-shadow: 2px 5px 5px white;
+  color:#ffcb63;
+}
+h5 {
+  font-size:1.2em;
+  font-family: khulabold;
+}
+.skillsList {
+  position:relative;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width:100%;
+  margin:20px 0px;
+}
+.skill {
+  color:#a8a8a8;
+  padding:10px;
+  font-style:italic;
+  width:30%;
+  box-sizing: border-box;
+}
+.experienceList {
+  margin:20px 0px 40px;
+}
+.listEntry {
+  color:#a8a8a8;
+}
+.educationEntry {
+  padding-left:30px;
+}
+#logo1 {
+  margin-right:10px;
+}
+#logo1:hover {
+  cursor: pointer;
+  filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%) ;
+  /* -webkit-filter: sepia() saturate(10000%) hue-rotate(150deg); */
+}
+#logo2 {
+  margin-left:8px;
+  margin-right:20px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.2s ease;
+}
+#logo2:hover {
+  -webkit-filter: grayscale(0%);
+   filter: grayscale(0%);
+}
+#logo3 {
+  margin-right:8px;
+  -webkit-filter: invert(100%) saturate(0%);
+  filter: invert(100%) saturate(0%);
+  transition: all 0.2s ease;
+}
+#logo3:hover {
+  -webkit-filter: invert(0%);
+  filter: invert(0%);
+}
+i {
+  font-style:italic;
+}
+.containBlockWide {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.musicBox {
+  position: relative;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.songBox {
+  width:30%;
+  background-color:black;
+  margin-bottom:40px;
+  transition: all 0.5s ease;
+}
+.songBox:hover {
+  transform:scale(1.1);
+}
+.albumArt {
+  width:100%;
+}
+.songCaption {
+  font-size:0.7em;
+  color:#a8a8a8;
+  padding-left:10px;
+}
+.musicLink {
+  color:#a8a8a8;
+  transition: all 0.2s ease;
+  font-size: 2.5em;
+  float:right;
+  margin-right: 10px;
+}
+.soundcloudLink:hover {
+  color:#ff7700;
+}
+.bandcampLink:hover {
+  color:#477987;
+}
+.songTitle {
+  position: relative;
+  top:10px;
+}
+.projectsOuterBlock {
+  background:url("assets/industry.jpeg");
+  height:100%;
+  width:100%;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+.projectsHeading {
+  margin-bottom: 70px;
+}
+.projImage1, .projImage2, .projImage3, .projImage4 {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projImage1 {
+  background-image: url("assets/joshuatree.jpg");
+  min-height: 100%;
+}
+.projImage2 {
+  background-image: url("assets/code1.jpeg");
+  min-height: 400px;
+}
+.projImage3 {
+  background-image: url("assets/industry.jpeg");
+  min-height: 400px;
+}
+.projImage4 {
+  background-image: url("assets/music_production2.jpeg");
+  min-height:400px;
+}
+.caption {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 5px 10px black;
+  color:white;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay:1s;
+  animation-delay: 1s;
+}
+.subtitle {
+  background-color: #111;
+  text-shadow: none;
+  padding: 18px;
+  letter-spacing: 10px;
+  font-size: 1.4em;
+  color:white;
+  transition: all 0.5s ease;
+}
+.subtitle:hover {
+  font-size:1.8em;
+}
+.projSectionTitle {
+  background-color:transparent;
+  color: white;
+  letter-spacing: 10px;
+  height:100%;
+}
+.projSectionInfo {
+  color:#ddd;
+  background-color:#282E34;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+    .projImage1, .projImage2, .projImage3 {
+        background-attachment: scroll;
+    }
+}
