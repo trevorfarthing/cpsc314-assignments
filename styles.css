@@ -4,6 +4,7 @@
   - Fix laggy parallax scrolling, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
   - Add cool page transitions
   - Change contact form to have better transitions on focus
+  - Add music player to each of the song cards
 
  */
 html, body {
@@ -459,6 +460,7 @@ i {
   transition: all 0.5s ease;
 }
 .songBox:hover {
+  cursor: pointer;
   transform:scale(1.1);
 }
 .albumArt {
@@ -506,7 +508,8 @@ i {
   background-size: cover;
 }
 .projImage1 {
-  background-image: url("assets/joshuatree.jpg");
+  background-image: url("assets/joshuatree3.jpeg");
+  /* background-image: url("assets/joshuatree.jpg"); */
   min-height: 100%;
 }
 .projImage2 {
@@ -556,8 +559,30 @@ i {
   color:#ddd;
   background-color:#282E34;
   text-align:center;
-  padding:50px 80px;
+  padding:20px 50px;
   text-align: justify;
+}
+.inlineLink {
+  color:#ffcb63;
+  transition: all 0.3s ease;
+}
+.inlineLink:hover {
+  text-decoration: underline;
+}
+.projImage2 > .caption > .projSectionTitle,
+.projImage3 > .caption > .projSectionTitle,
+.projImage4 > .caption > .projSectionTitle
+{
+    transition: all 0.2s ease;
+}
+.projImage2:hover > .caption > .projSectionTitle,
+.projImage3:hover > .caption > .projSectionTitle,
+.projImage4:hover > .caption > .projSectionTitle
+{
+  letter-spacing:20px;
+}
+.projectsFooter {
+  background: #282E34;
 }
 
 
