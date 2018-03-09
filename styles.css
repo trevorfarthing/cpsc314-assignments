@@ -8,6 +8,7 @@
   - Add drop down menu to MUSIC link to select 'Streaming' or 'Videos'
   - Add indicator under link for current page user is on
   - Photoshop "About" page photo to fade out to black on bottom
+  - Add slide out menu for nav on mobile
  */
 html, body {
   font-family: khularegular;
@@ -690,7 +691,8 @@ MEDIA QUERIES
 }
 @media all and (max-width:805px) {
   nav {
-    position: static;
+    position: relative;
+    right:0px;
     margin: 0 auto;
     text-align: center;
   }
@@ -778,5 +780,11 @@ MEDIA QUERIES
   }
   .skill {
     width:100%;
+  }
+  /* Set to default so hover state doesn't change anything */
+  .projImage2:hover > .caption > .projSectionTitle,
+  .projImage3:hover > .caption > .projSectionTitle,
+  .projImage4:hover > .caption > .projSectionTitle {
+    letter-spacing: 10px;
   }
 }
