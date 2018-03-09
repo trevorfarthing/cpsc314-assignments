@@ -1,11 +1,13 @@
 /* TODO:
-  - Make nav header float at top after scrolling down a certain amount
+  - Make nav header fixed at top after scrolling down a certain amount
   - Open youtube videos in section or in a modal
-  - Fix laggy parallax scrolling, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
+  - Fix parallax scrolling lag, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
   - Add cool page transitions
   - Change contact form to have better transitions on focus
   - Add music player to each of the song cards
-
+  - Add drop down menu to MUSIC link to select 'Streaming' or 'Videos'
+  - Add indicator under link for current page user is on
+  - Photoshop "About" page photo to fade out to black on bottom
  */
 html, body {
   font-family: khularegular;
@@ -14,7 +16,9 @@ html, body {
 }
 
 /*
+************************
 FONTS
+************************
  */
 @font-face {
     font-family: 'khulabold';
@@ -73,7 +77,9 @@ FONTS
 }
 
 /*
+************************
 ANIMATIONS
+************************
 */
 
 /* Fade animation */
@@ -149,6 +155,68 @@ ANIMATIONS
     right: 50px;
   }
 }
+/*
+************************
+GLOBAL STYLES
+************************
+*/
+header {
+  padding: 40px;
+}
+nav {
+  position: absolute;
+  right: 50px;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size:3em;
+}
+h3 {
+  font-size: 2em;
+}
+footer {
+  padding:10px;
+  width:100%;
+  color: white;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+.socialLink:hover {
+  color:#a8a8a8;
+  cursor: pointer;
+}
+.socialLink {
+  color:white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+p {
+  padding:30px 0px;
+  letter-spacing: 1px;
+  line-height:25px;
+}
+h5 {
+  font-size:1.2em;
+  font-family: khulabold;
+}
+i {
+  font-style:italic;
+}
+.inlineLink {
+  color:#ffcb63;
+  transition: all 0.3s ease;
+}
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
+/*
+************************
+HOME PAGE STYLES
+************************
+*/
 
 .homeOuterBlock {
   height:100%;
@@ -163,9 +231,6 @@ ANIMATIONS
   -moz-animation: fade 3s 1;
   -o-animation: fade 3s 1;
   animation: fade 3s 1;
-}
-header {
-  padding: 40px;
 }
 .fadeIn {
   /* Fade animations */
@@ -185,10 +250,6 @@ header {
   -moz-animation-delay: 4s;
   -o-animation-delay:4s;
   animation-delay: 4s;
-}
-nav {
-  position: absolute;
-  right: 50px;
 }
 .homeNav {
   position: absolute;
@@ -227,15 +288,6 @@ nav {
   top:50%;
   transform: translate(-25%,-50%);
 }
-h1 {
-  font-size: 4em;
-}
-h2 {
-  font-size:3em;
-}
-h3 {
-  font-size: 2em;
-}
 .homeHeading {
   text-shadow: 2px 5px 10px black;
 }
@@ -244,27 +296,16 @@ h3 {
   position:fixed;
   bottom:0;
 }
-footer {
-  padding:10px;
-  width:100%;
-  color: white;
-  letter-spacing: 2px;
-  box-sizing: border-box;
-}
 .fa-facebook, .fa-linkedin {
   font-size: 1.75em;
   margin-right: 10px;
-  top:4px;
+  top:1px;
+  vertical-align: middle;
   position: relative;
 }
-.socialLink:hover {
-  color:#a8a8a8;
-  cursor: pointer;
-}
-.socialLink {
-  color:white;
-  text-decoration: none;
-  transition: color 0.2s ease;
+#mailLink {
+  position: relative;
+  top:2px;
 }
 .typewriter {
   overflow: hidden;
@@ -287,7 +328,9 @@ footer {
 }
 
 /*
-CONTACT FORM STYLES
+************************
+CONTACT PAGE STYLES
+************************
 */
 .contactOuterBlock {
   height:100%;
@@ -303,10 +346,11 @@ CONTACT FORM STYLES
   max-width: 300px;
 }
 .mainContactBlock {
-  position: absolute;
+  /* position: absolute;
   top:50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
   width:100%;
+  padding-top: 35px;
 }
 input, textarea {
   margin: 10px 0px 20px;
@@ -352,6 +396,13 @@ input:focus, textarea:focus {
   text-align: center;
   padding:20px 0px 40px;
 }
+
+/*
+************************
+ABOUT PAGE STYLES
+************************
+*/
+
 .aboutOuterBlock {
   background: #1e2126;
 }
@@ -372,18 +423,9 @@ input:focus, textarea:focus {
   display: inline-block;
   position:absolute;
 }
-p {
-  padding:30px 0px;
-  letter-spacing: 1px;
-  line-height:25px;
-}
 .grayShadow:hover {
   text-shadow: 2px 5px 5px white;
   color:#ffcb63;
-}
-h5 {
-  font-size:1.2em;
-  font-family: khulabold;
 }
 .skillsList {
   position:relative;
@@ -392,7 +434,7 @@ h5 {
   justify-content: space-around;
   flex-wrap: wrap;
   width:100%;
-  margin:20px 0px;
+  margin:20px 0px 30px;
 }
 .skill {
   color:#a8a8a8;
@@ -415,8 +457,8 @@ h5 {
 }
 #logo1:hover {
   cursor: pointer;
-  filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%) ;
-  /* -webkit-filter: sepia() saturate(10000%) hue-rotate(150deg); */
+  filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%);
+  -webkit-filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%);
 }
 #logo2 {
   margin-left:8px;
@@ -439,9 +481,16 @@ h5 {
   -webkit-filter: invert(0%);
   filter: invert(0%);
 }
-i {
-  font-style:italic;
+#responsiveImage {
+  display:none;
 }
+
+/*
+************************
+MUSIC PAGE STYLES
+************************
+*/
+
 .containBlockWide {
   position: relative;
   margin: 0 auto;
@@ -488,6 +537,12 @@ i {
   position: relative;
   top:10px;
 }
+
+/*
+************************
+PROJECTS PAGE STYLES
+************************
+*/
 .projectsOuterBlock {
   background:url("assets/industry.jpeg");
   height:100%;
@@ -562,13 +617,6 @@ i {
   padding:20px 50px;
   text-align: justify;
 }
-.inlineLink {
-  color:#ffcb63;
-  transition: all 0.3s ease;
-}
-.inlineLink:hover {
-  text-decoration: underline;
-}
 .projImage2 > .caption > .projSectionTitle,
 .projImage3 > .caption > .projSectionTitle,
 .projImage4 > .caption > .projSectionTitle
@@ -584,10 +632,151 @@ i {
 .projectsFooter {
   background: #282E34;
 }
+#overview {
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
 
+/*
+************************
+MEDIA QUERIES
+************************
+*/
+@media all and (max-width:1024px) {
+  .homeOuterBlock {
+    background-position: center;
+  }
+  .projImage1, .projImage2, .projImage3, .projImage4 {
+      background-attachment: scroll;
+  }
+  .profileImage {
+    width:65%;
+    display: block;
+    top:100px;
+    position: static;
+    margin: 0 auto;
+  }
+  .aboutHeading {
+    margin-top:50px;
+    width:100%;
+    display:block;
+  }
+  .aboutHeading h1 {
+    text-align: center;
+  }
+  .homeText {
+    left:50%;
+    transform:translate(0%,0%);
+    width:100%;
+    transform:translateX(-50%);
+  }
+  .homeHeading {
+    margin:0 auto;
+    text-align: center;
+  }
+  .homeSubHeading {
+    margin:0 auto;
+    text-align: center;
+  }
+  #responsiveImage {
+    display:block;
+  }
+  #desktopImage {
+    display:none;
+  }
+}
+@media all and (max-width:805px) {
+  nav {
+    position: static;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .mainContactBlock {
+    position:relative;
+  }
+}
+@media all and (max-width:768px) {
+  .songBox {
+    width:45%;
+  }
+}
 
-@media only screen and (max-device-width: 1024px) {
-    .projImage1, .projImage2, .projImage3 {
-        background-attachment: scroll;
-    }
+@media all and (max-width:767px) {
+  .songBox {
+    width:45%;
+  }
+  .mainContactBlock {
+    padding-top: 10px;
+  }
+  .contactHeading {
+    padding:20px 20px 40px;
+  }
+  .navLink {
+    font-size:0.8em;
+    margin: 0px;
+    padding:10px;
+  }
+  h1 {
+    font-size:3em;
+  }
+  h2 {
+    font-size:2.5em;
+  }
+  h3 {
+    font-size:1.5em;
+  }
+  header {
+    padding:20px;
+  }
+  footer {
+    font-size: 0.8em;
+  }
+  .aboutSubHeading {
+    text-align: center;
+    padding-top:30px;
+  }
+  #logo1, #logo2, #logo3 {
+    display:block;
+    margin:0 auto;
+    padding:20px;
+  }
+  #logo1 {
+    padding-top:0px;
+  }
+  .experienceList {
+    text-align: center;
+  }
+  .educationEntry {
+    padding-top: 40px;
+    padding-left:0px;
+  }
+  .subtitle {
+    font-size:1em;
+  }
+  #overview {
+    padding:40px 40px 20px;
+  }
+  .projSectionInfo {
+    padding:20px 40px;
+  }
+  nav {
+    line-height: 20px;
+  }
+  .aboutHeading {
+    text-align: center;
+  }
+  .mainContent {
+    padding: 10px 30px 30px;
+  }
+}
+@media all and (max-width:600px) {
+  .songBox {
+    width:90%;
+  }
+  .skill {
+    width:100%;
+  }
 }
