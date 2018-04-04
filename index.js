@@ -39,7 +39,7 @@ function hiString() {
 
 // 3. Three Chars to Front
 function threeCharsToFront() {
-  let input = handleUserInput('THREE CHARS TO FRONTsdfg\nEnter some text at least 3 characters long.', 3);
+  let input = handleUserInput('THREE CHARS TO FRONT\nEnter some text at least 3 characters long.', 3);
   return input.substring(input.length - 3, input.length) + input.substring(0, input.length - 3);
 }
 
@@ -82,7 +82,7 @@ function integerSwap() {
 
 // 7. Longest String
 function longestString() {
-  let trimmedArr = handleUserInputList('INTEGER SWAP\nEnter a list of strings separated by commas.');
+  let trimmedArr = handleUserInputList('LONGEST STRING\nEnter a list of strings separated by commas.');
   let maxLength = 0;
   let longestStr = '';
   trimmedArr.forEach(function(item) {
@@ -100,17 +100,18 @@ function largestEven() {
   let numberArr = trimmedArr.map(Number);
   if(numberArr.includes(NaN)) {
     alert('You did not enter a list of only numbers.');
-  }
-  let largestEven = -1;
-  numberArr.forEach(function(item) {
-    if(item % 2 === 0 && item > largestEven) {
-      largestEven = item;
-    }
-  });
-  if(largestEven === -1) {
-    alert('You did not enter any even numbers');
   } else {
-    alert('The largest even number is: ' + largestEven);
+    let largestEven = Number.NEGATIVE_INFINITY;
+    numberArr.forEach(function(item) {
+      if(item % 2 === 0 && item > largestEven) {
+        largestEven = item;
+      }
+    });
+    if(largestEven === -1) {
+      alert('You did not enter any even numbers');
+    } else {
+      alert('The largest even number is: ' + largestEven);
+    }
   }
 }
 
@@ -132,3 +133,16 @@ function unlimitedFunction(...args) {
   args.forEach((item) => allArgsStr += item + ' ');
   alert(allArgsStr);
 }
+
+// Call the functions
+// Comment out others to test one at a time
+alert(charSwap());
+alert(hiString());
+alert(threeCharsToFront());
+stringsToSentence();
+alert(upperOrLower());
+integerSwap();
+longestString();
+largestEven();
+currentDayTime();
+unlimitedFunction('hello', true, 98, 'Trevor');
