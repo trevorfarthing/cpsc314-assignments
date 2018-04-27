@@ -22,9 +22,7 @@ function createUserBlock(user) {
   userBlock.id = `user-block-${user.id}`;
   userBlock.loadedAlbums = [];
   userBlock.loadedTodos = [];
-  userBlock.todosDisplayed = false;
-  // $(`#user-block-${user.id}`).attr('loadedalbums', false);
-  // $(`#user-block-${user.id}`).attr('loadedtodos', false);
+  userBlock.todosVisible = false;
 
   // Create buttons
   let button1 = document.createElement('div');
@@ -56,6 +54,7 @@ function createUserBlock(user) {
   todosAlbums.id = 'todos-albums-' + user.id;
   todosAlbums.style.display = 'none';
 
+  // Append elements
   basicInfo.append(image);
   basicInfo.append(name);
   basicInfo.append(email);
@@ -69,8 +68,10 @@ function createUserBlock(user) {
   $('#main-content').append(userBlock);
 }
 
+// Called when the 'View Todos' button is clicked
 function onTodosClick(id) {
   let userBlock = document.getElementById(`user-block-${id}`);
+  // If we have not loaded the todos yet, make API call
   if(userBlock.loadedTodos.length === 0) {
     $.ajax({
       url:`https://jsonplaceholder.typicode.com/todos?userId=${id}`,
@@ -85,7 +86,29 @@ function onTodosClick(id) {
   }
 }
 
+// Handles the displaying of todos after the button is clicked
 function displayTodos(id) {
+  let userBlock = document.getElementById(`user-block-${id}`);
+  if($(`#todos-albums-${id}`).is(':visible') === false) {
+    fillTodos(id);
+    $(`#caret-todos-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  else if(!userBlock.todosVisible) {
+    $(`#caret-albums-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, () => { fillTodos(id) });
+    $(`#caret-todos-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  else {
+    $(`#caret-todos-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  userBlock.todosVisible = true;
+}
+
+// Fills the todos into the div
+function fillTodos(id) {
   let userBlock = document.getElementById(`user-block-${id}`);
   $(`#todos-albums-${id}`).empty();
   for(let todo of userBlock.loadedTodos) {
@@ -97,12 +120,12 @@ function displayTodos(id) {
     }
     $(`#todos-albums-${id}`).append(todoBlock);
   }
-  $(`#todos-albums-${id}`).slideToggle(600, null);
-  $(`#caret-todos-${id}`).toggleClass('rotate');
 }
 
+// Called when the 'View Albums' button is clicked
 function onAlbumsClick(id) {
   let userBlock = document.getElementById(`user-block-${id}`);
+  // If we have not loaded the albums yet, make API call
   if(userBlock.loadedAlbums.length === 0) {
     $.ajax({
       url:`https://jsonplaceholder.typicode.com/albums?userId=${id}`,
@@ -117,7 +140,29 @@ function onAlbumsClick(id) {
   }
 }
 
+// Handles the displaying of albums after the button is clicked
 function displayAlbums(id) {
+  let userBlock = document.getElementById(`user-block-${id}`);
+  if($(`#todos-albums-${id}`).is(':visible') === false) {
+    fillAlbums(id);
+    $(`#caret-albums-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  else if(userBlock.todosVisible) {
+    $(`#caret-todos-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, () => { fillAlbums(id) });
+    $(`#caret-albums-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  else {
+    $(`#caret-albums-${id}`).toggleClass('rotate');
+    $(`#todos-albums-${id}`).slideToggle(600, null);
+  }
+  userBlock.todosVisible = false;
+}
+
+// Fills the albums into the div
+function fillAlbums(id) {
   let userBlock = document.getElementById(`user-block-${id}`);
   $(`#todos-albums-${id}`).empty();
   for(let album of userBlock.loadedAlbums) {
@@ -125,6 +170,4 @@ function displayAlbums(id) {
     albumBlock.innerHTML = `<i class="fas fa-music"></i>${album.title}`;
     $(`#todos-albums-${id}`).append(albumBlock);
   }
-  $(`#todos-albums-${id}`).slideToggle(600, null);
-  $(`#caret-albums-${id}`).toggleClass('rotate');
 }
