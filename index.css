@@ -1,0 +1,138 @@
+html, body {
+  font-family: khularegular;
+  height: 100%;
+}
+/*
+************************
+FONTS
+************************
+ */
+@font-face {
+    font-family: 'khulabold';
+    src: url('fonts/Khula/khula-bold-webfont.ttf');
+    src: url('fonts/Khula/khula-bold-webfont.eot');
+    src: url('fonts/Khula/khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-bold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulaextrabold';
+    src: url('fonts/Khula/khula-extrabold-webfont.ttf');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulalight';
+    src: url('fonts/Khula/khula-light-webfont.ttf');
+    src: url('fonts/Khula/khula-light-webfont.eot');
+    src: url('fonts/Khula/khula-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-light-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khularegular';
+    src: url('fonts/Khula/khula-regular-webfont.ttf');
+    src: url('fonts/Khula/khula-regular-webfont.eot');
+    src: url('fonts/Khula/khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-regular-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulasemibold';
+    src: url('fonts/Khula/khula-semibold-webfont.ttf');
+    src: url('fonts/Khula/khula-semibold-webfont.eot');
+    src: url('fonts/Khula/khula-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-semibold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+header {
+  padding:50px;
+  text-align:center;
+  font-size:50px;
+  background:#092249;
+  color:white;
+}
+#main-content {
+  padding:50px;
+}
+.user-block {
+  padding:30px;
+  background:#3a3a3a;
+  color:white;
+  margin: 20px 0px 20px 0px;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  display:flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  box-shadow: 5px 4px 15px 0 black;
+}
+.user-fullname {
+  font-size:20px;
+  font-weight:500;
+  padding:5px 0px 5px;
+  letter-spacing: 1.2px;
+}
+.user-info {
+  font-weight:100;
+  padding:2px 0px 2px;
+  font-family: khulalight;
+  letter-spacing:1px;
+  font-size:12px;
+}
+.basic-info {
+  float: left;
+  width:20%;
+}
+.other-info {
+  margin-left:20px;
+  width:80%;
+}
+.button {
+  display:inline;
+  margin-right:30px;
+}
+.button:hover {
+  color:lightgray;
+  cursor:pointer;
+}
+.fa-caret-right {
+  margin-right:10px;
+}
+.todos-albums {
+  margin-top:20px;
+  font-family: khulalight;
+}
+.fa-check-square, .fa-square, .fa-music {
+  margin-right:10px;
+}
+p {
+  padding: 5px 5px 5px;
+}
+.rotate {
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ease-transition {
+  transition: 0.7s all ease;
+}
