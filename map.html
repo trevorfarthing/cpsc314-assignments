@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Places - Trevor Farthing</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <script src="map.js"></script>
+    <video autoplay muted loop id="videoBackground">
+      <source src="assets/beam.mp4" type="video/mp4">
+    </video>
+    <div class="contactOuterBlock">
+      <header>
+        <nav>
+          <a href="index.html" class="navLink">HOME</a>
+          <a href="weather.html" class="navLink">WEATHER</a>
+          <a href="map.html" class="navLink">PLACES</a>
+          <a href="contact.html" class="navLink">CONTACT</a>
+        </nav>
+      </header>
+
+      <section class="mainContactBlock fadeIn">
+        <div class="contactHeading">
+          <h2>Notable Places</h2>
+        </div>
+       <div class="containBlockWide">
+         <div id="map"></div>
+         <div class="locationBlock">
+           <h3>Kirkland, WA</h3>
+           <p>My hometown! I've lived here essentially my whole life.</p>
+         </div>
+         <div class="locationBlock">
+           <h3>San Francisco, CA</h3>
+           <p>My favorite city (besides Kirkland and Seattle of course).  I've visited about 3 times.</p>
+         </div>
+         <div class="locationBlock">
+           <h3>London, UK</h3>
+           <p>A large part of my family comes from England.  My dad was actually born there.</p>
+         </div>
+       </div>
+
+      </section>
+
+      <footer class="mapsFooter">
+        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink" id="homeLink">
+          <i class="fab fa-linkedin" class="socialIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+          <i class="fab fa-facebook" class="socialIcon"></i>
+        </a>
+        <span>Created by Trevor Farthing</span>
+      </footer>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIKamQxnIGE7OkZv6sZAuIan4B-KmveFk&callback=initMap"
+    async defer></script>
+  </body>
+</html>

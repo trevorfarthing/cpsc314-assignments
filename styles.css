@@ -1,0 +1,630 @@
+html, body {
+  font-family: khularegular;
+  height: 100%;
+  /*overflow-x: hidden;*/
+}
+
+/*
+************************
+FONTS
+************************
+ */
+@font-face {
+    font-family: 'khulabold';
+    src: url('fonts/Khula/khula-bold-webfont.ttf');
+    src: url('fonts/Khula/khula-bold-webfont.eot');
+    src: url('fonts/Khula/khula-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-bold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulaextrabold';
+    src: url('fonts/Khula/khula-extrabold-webfont.ttf');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot');
+    src: url('fonts/Khula/khula-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulalight';
+    src: url('fonts/Khula/khula-light-webfont.ttf');
+    src: url('fonts/Khula/khula-light-webfont.eot');
+    src: url('fonts/Khula/khula-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-light-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khularegular';
+    src: url('fonts/Khula/khula-regular-webfont.ttf');
+    src: url('fonts/Khula/khula-regular-webfont.eot');
+    src: url('fonts/Khula/khula-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-regular-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'khulasemibold';
+    src: url('fonts/Khula/khula-semibold-webfont.ttf');
+    src: url('fonts/Khula/khula-semibold-webfont.eot');
+    src: url('fonts/Khula/khula-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Khula/khula-semibold-webfont.woff2') format('woff2'),
+         url('fonts/Khula/khula-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
+************************
+ANIMATIONS
+************************
+*/
+
+/* Fade animation */
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Typewriter animation */
+@-webkit-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@-moz-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@-o-keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Slide from right animation */
+@-webkit-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-moz-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@-o-keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+@keyframes slide-from-right {
+  100% {
+    right: 50px;
+  }
+}
+/*
+************************
+GLOBAL STYLES
+************************
+*/
+header {
+  padding: 40px;
+}
+nav {
+  position: absolute;
+  right: 50px;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size:3em;
+}
+h3 {
+  font-size: 2em;
+}
+footer {
+  padding:10px;
+  width:100%;
+  color: white;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+.socialLink:hover {
+  color:#a8a8a8;
+  cursor: pointer;
+}
+.socialLink {
+  color:white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+p {
+  padding:30px 0px;
+  letter-spacing: 1px;
+  line-height:25px;
+}
+h5 {
+  font-size:1.2em;
+  font-family: khulabold;
+}
+i {
+  font-style:italic;
+}
+.inlineLink {
+  color:#ffcb63;
+  transition: all 0.3s ease;
+}
+.inlineLink:hover {
+  text-decoration: underline;
+}
+.containBlockWide {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/*
+************************
+HOME PAGE STYLES
+************************
+*/
+
+.homeOuterBlock {
+  height:100%;
+  background:url("assets/joshuatree2.jpg");
+  background-color:black;
+  background-position:0px -275px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+}
+.fadeIn {
+  /* Fade animations */
+  -webkit-animation: fade 3s 1;
+  -moz-animation: fade 3s 1;
+  -o-animation: fade 3s 1;
+  animation: fade 3s 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity:0;
+}
+.animateDelay {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+}
+.homeNav {
+  position: absolute;
+  right: -200px /*-200%*/;
+  /* Fade animations */
+  -webkit-animation: slide-from-right 2s 1;
+  -moz-animation: slide-from-right 3s 1;
+  -o-animation: slide-from-right 3s 1;
+  animation: slide-from-right 2s 1;
+
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay:4s;
+  animation-delay: 4s;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.navLink {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size:1.2em;
+  letter-spacing: 5px;
+  transition: all 0.5s ease;
+}
+.navLink:hover {
+  color:#a8a8a8;
+  text-shadow: 2px 5px 10px black;
+}
+.homeText {
+  color:white;
+  position:absolute;
+  right: 5%;
+  top:50%;
+  transform: translate(-25%,-50%);
+}
+.homeHeading {
+  text-shadow: 2px 5px 10px black;
+}
+.homeFooter {
+  background:rgba(0,0,0,0.2);
+  position:fixed;
+  bottom:0;
+}
+.fa-facebook, .fa-linkedin {
+  font-size: 1.75em;
+  margin-right: 10px;
+  top:1px;
+  vertical-align: middle;
+  position: relative;
+}
+#mailLink {
+  position: relative;
+  top:2px;
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  /*margin: 0 auto;*/
+  letter-spacing: 2px;
+  animation:
+    typewriter 1.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  -o-animation-delay:3s;
+  animation-delay: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  width:0px;
+}
+
+/*
+************************
+CONTACT PAGE STYLES
+************************
+*/
+.contactOuterBlock {
+  height:100%;
+  background-color:black;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.containBlock {
+  position: relative;
+  margin: 0 auto;
+  max-width: 300px;
+}
+.mainContactBlock {
+  /* position: absolute;
+  top:50%;
+  transform: translateY(-50%); */
+  width:100%;
+  padding-top: 35px;
+}
+input, textarea {
+  margin: 10px 0px 0px;
+  padding:10px;
+  border-radius: 5px;
+  font-size:1em;
+  display: block;
+  width:100%;
+  box-sizing: border-box;
+  border: none;
+  color:white;
+  box-shadow: 0px 0px 2px white;
+}
+textarea {
+  resize:none;
+}
+label {
+  color:white;
+}
+input, textarea {
+  background: rgba(0,0,0,0.3);
+}
+input[type="submit"] {
+  width: 200px;
+  margin:10px auto;
+  background: rgba(0,0,0,0.5);
+  transition:box-shadow 0.5s ease 0s;
+}
+input[type="submit"]:hover {
+  box-shadow: 0px 0px 5px 2px white;
+  cursor:pointer;
+}
+input::placeholder, textarea::placeholder {
+  color:#a8a8a8;
+}
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px 2px white;
+}
+.contactHeading {
+  color:white;
+  text-shadow: 2px 5px 10px black;
+  text-align: center;
+  padding:0px 0px 40px;
+}
+#videoBackground {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.validateText {
+  color:#e04941;
+  height:20px;
+  margin-top:5px;
+  margin-bottom:10px;
+}
+#formDisplay {
+  color:white;
+  padding-left:20px;
+}
+/*
+************************
+MAP PAGE STYLES
+************************
+*/
+#map {
+  margin:0 auto;
+  width:90%;
+  height:400px;
+  padding-left:20px;
+  padding-right:20px;
+  box-sizing: border-box;
+  margin-bottom:40px;
+}
+.locationBlock {
+  color:white;
+  text-align: center;
+}
+.mapsFooter {
+  background:rgba(0,0,0,0.2);
+  position:absolute;
+}
+/*
+************************
+WEATHER PAGE STYLES
+************************
+*/
+#weatherButton {
+  width: 100px;
+  margin:0px auto 40px;
+  background: rgba(0,0,0,0.5);
+  transition:box-shadow 0.5s ease 0s;
+  box-sizing: border-box;
+  border: none;
+  color:white;
+  box-shadow: 0px 0px 2px white;
+  padding:10px;
+  border-radius: 5px;
+  font-size:1em;
+  text-align: center;
+}
+#weatherButton:hover {
+  box-shadow: 0px 0px 5px 2px white;
+  cursor:pointer;
+}
+#weatherContainer {
+  position: relative;
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  min-height:350px;
+  margin-bottom:20px;
+  text-align: center;
+}
+.weatherCard {
+  width:30%;
+  height:250px;
+  background-color:rgba(0, 0, 0, 0.6);
+  margin-bottom:20px;
+  transition: all 0.5s ease;
+  color:white;
+  text-align:center;
+  border-radius: 10px;
+  margin-left:20px;
+}
+.weatherCard:hover {
+  cursor: pointer;
+  transform:scale(1.1);
+}
+.cityHeading {
+  margin:20px 0px 10px;
+  font-size:1.8em;
+}
+.weatherIcon {
+  font-size:6em;
+  margin:0px 0px 20px;
+  color:#a8a8a8;
+}
+.weatherText {
+  margin-bottom:20px;
+}
+#placeInput {
+  width:80%;
+  margin:0 auto;
+}
+#validateLocation {
+  width:80%;
+  height:20px;
+  margin:10px auto;
+  color:#e04941;
+}
+.removeButton {
+  width:60px;
+  margin:0 auto;
+  padding:10px;
+  color:#a8a8a8;
+}
+.removeButton:hover {
+  color:#e04941;
+}
+
+/*
+************************
+MEDIA QUERIES
+************************
+*/
+@media all and (max-width:1024px) {
+  .homeOuterBlock {
+    background-position: center;
+  }
+  .profileImage {
+    width:65%;
+    display: block;
+    top:100px;
+    position: static;
+    margin: 0 auto;
+  }
+  .homeText {
+    left:50%;
+    transform:translate(0%,0%);
+    width:100%;
+    transform:translateX(-50%);
+  }
+  .homeHeading {
+    margin:0 auto;
+    text-align: center;
+  }
+  .homeSubHeading {
+    margin:0 auto;
+    text-align: center;
+  }
+  #desktopImage {
+    display:none;
+  }
+}
+@media all and (max-width:805px) {
+  nav {
+    position: relative;
+    right:0px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .mainContactBlock {
+    position:relative;
+  }
+  .weatherCard {
+    width:40%;
+    margin-left:0px;
+  }
+  #weatherContainer {
+    justify-content: space-evenly;
+  }
+}
+@media all and (max-width:767px) {
+  .mainContactBlock {
+    padding-top: 10px;
+  }
+  .contactHeading {
+    padding:20px 20px 40px;
+  }
+  .navLink {
+    font-size:0.8em;
+    margin: 0px;
+    padding:10px;
+  }
+  h1 {
+    font-size:3em;
+  }
+  h2 {
+    font-size:2.5em;
+  }
+  h3 {
+    font-size:1.5em;
+  }
+  header {
+    padding:20px;
+  }
+  footer {
+    font-size: 0.8em;
+  }
+  .aboutSubHeading {
+    text-align: center;
+    padding-top:30px;
+  }
+  #logo1, #logo2, #logo3 {
+    display:block;
+    margin:0 auto;
+    padding:20px;
+  }
+  #logo1 {
+    padding-top:0px;
+  }
+  .experienceList {
+    text-align: center;
+  }
+  .educationEntry {
+    padding-top: 40px;
+    padding-left:0px;
+  }
+  .subtitle {
+    font-size:1em;
+  }
+  #overview {
+    padding:40px 40px 20px;
+  }
+  .projSectionInfo {
+    padding:20px 40px;
+  }
+  nav {
+    line-height: 20px;
+  }
+  .mainContent {
+    padding: 10px 30px 30px;
+  }
+}
+@media all and (max-width:600px) {
+  .weatherCard {
+    width:80%;
+    margin:0px auto 30px;
+  }
+}

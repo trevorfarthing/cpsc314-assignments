@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact - Trevor Farthing</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <script src="contact.js"></script>
+    <video autoplay muted loop id="videoBackground">
+      <source src="assets/london.mp4" type="video/mp4">
+    </video>
+    <div class="contactOuterBlock">
+      <header>
+        <nav>
+          <a href="index.html" class="navLink">HOME</a>
+          <a href="weather.html" class="navLink">WEATHER</a>
+          <a href="map.html" class="navLink">PLACES</a>
+          <a href="contact.html" class="navLink">CONTACT</a>
+        </nav>
+      </header>
+
+      <section class="mainContactBlock fadeIn">
+        <div class="contactHeading">
+          <h2>Questions?</h2>
+        </div>
+       <div class="containBlock">
+         <form name="questionsForm">
+           <label for="name">Name</label>
+           <input name="name" type="text" id="name" placeholder="What's your name?" class="fullInput" >
+           <div id="nameValidate" class="validateText"> </div>
+           <label for="email">Email</label>
+           <input name="email" type="text" id="email" placeholder="What's your email?" class="fullInput">
+           <div id="emailValidate" class="validateText"> </div>
+           <label for="message">Message</label>
+           <textarea name="message" cols="20" rows="7" maxlength="1000" id="message" placeholder="What do you want to say?" class="fullInput"></textarea>
+           <div id="msgValidate" class="validateText"> </div>
+           <input type="submit" class="fullInput" id="submit">
+         </form>
+       </div>
+       <div id="formDisplay"></div>
+      </section>
+
+      <footer class="homeFooter">
+        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink" id="homeLink">
+          <i class="fab fa-linkedin" class="socialIcon"></i>
+        </a>
+        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+          <i class="fab fa-facebook" class="socialIcon"></i>
+        </a>
+        Created by Trevor Farthing
+      </footer>
+    </div>
+  </body>
+</html>
