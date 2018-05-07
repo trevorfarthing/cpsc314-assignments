@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
   </head>
   <body style="overflow-x:hidden;">
-    <div class="homeOuterBlock" id="backgroundBlock">
+    <script src="index.js"></script>
+    <div id="homeOuterBlock">
       <header class="fadeIn animateDelay">
         <nav class="homeNav">
           <a href="index.html" class="navLink">HOME</a>
@@ -26,6 +26,30 @@
       <div class="homeText">
         <h1 class="homeHeading typewriter"> Hi, I'm Trevor. </h1>
         <h3 class="homeSubHeading typewriter" style="animation-delay:3s;">I like to create. </h3>
+      </div>
+      <div class="fadeIn animateDelay homeParagraph">
+        <p>
+          Check out the
+          <a class="inlineLink" href="weather.html">weather</a>,
+          view some of my <a class="inlineLink" href="map.html">favorite places</a>,
+          or contact me <a class="inlineLink" href="contact.html">here</a>.
+        </p>
+      </div>
+      <div class="containBlockWide fadeIn animateDelay">
+        <div id="homeCardContainer">
+          <a href="https://www.youtube.com/c/TrevorFarthing" class="homeCard" id=ytHomeCard>
+            <h4 class="homeCardHeading">YouTube</h4>
+            <i class="fab fa-youtube homeCardIcon"></i>
+          </a>
+          <a href="https://www.soundcloud.com/nerves_music" class="homeCard" id="scHomeCard">
+            <h4 class="homeCardHeading">SoundCloud</h4>
+            <i class="fab fa-soundcloud homeCardIcon"></i>
+          </a>
+          <a href="https://struckred.bandcamp.com" class="homeCard" id="bcHomeCard">
+            <h4 class="homeCardHeading">Bandcamp</h4>
+            <i class="fab fa-bandcamp homeCardIcon"></i>
+          </a>
+        </div>
       </div>
       <footer class="fadeIn animateDelay homeFooter">
         <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
