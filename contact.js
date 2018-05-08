@@ -37,9 +37,9 @@ $(document).on('submit', function(event) {
   // Otherwise clear out fields and display content submitted
   if(validateSuccess) {
     $('#formDisplay').html(`Name: ${name}, Email: ${email}, Message: ${message}`);
-    name = '';
-    email = '';
-    message = '';
+    document.forms.questionsForm.name.value = '';
+    document.forms.questionsForm.email.value = '';
+    document.forms.questionsForm.message.value = '';
   }
   return validateSuccess;
 });
