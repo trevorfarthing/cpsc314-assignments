@@ -508,6 +508,7 @@ MUSIC PAGE STYLES
   background-color:black;
   margin-bottom:40px;
   transition: all 0.5s ease;
+  position: relative;
 }
 .songBox:hover {
   cursor: pointer;
@@ -537,6 +538,21 @@ MUSIC PAGE STYLES
 .songTitle {
   position: relative;
   top:10px;
+}
+.playButton {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  color:rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.playIcon {
+  font-size:100px;
+}
+.songBox:hover > .playButton {
+  opacity:1;
 }
 
 /*
