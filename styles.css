@@ -8,6 +8,8 @@
   - Add indicator under link for current page user is on
   - Photoshop "About" page photo to fade out to black on bottom
   - Add slide out menu for nav on mobile
+  - Separate CSS files for each page and for font definitions
+  - Update to new more relevant images that still work at large resolutions
  */
 html, body {
   font-family: khularegular;
@@ -404,6 +406,7 @@ ABOUT PAGE STYLES
 
 .aboutOuterBlock {
   background: #1e2126;
+  height:100%;
 }
 .mainContent {
   width:100%;
@@ -415,6 +418,10 @@ ABOUT PAGE STYLES
   margin:0px;
   width:50%;
   display: inline-block;
+}
+.aboutFooter {
+  position: fixed;
+  bottom: 0;
 }
 .profileImage {
   background-size: 600px;
@@ -660,6 +667,15 @@ PROJECTS PAGE STYLES
 MEDIA QUERIES
 ************************
 */
+@media all and (max-width:1100px) {
+  .aboutFooter {
+    position: static;
+    bottom: auto;
+  }
+  .aboutOuterBlock {
+    height: auto;
+  }
+}
 @media all and (max-width:1024px) {
   .homeOuterBlock {
     background-position: center;
@@ -802,3 +818,26 @@ MEDIA QUERIES
     letter-spacing: 10px;
   }
 }
+@media all and (max-width:400px) {
+  .contactIcon {
+    font-size: 40px;
+  }
+  .contactLink {
+    padding:10px;
+  }
+  .contactLinkText {
+    font-size: 1em;
+  }
+}
+/* @media all and (max-height:670px) {
+  .contactIcon {
+    font-size: 30px;
+  }
+  .contactLink {
+    padding:5px;
+  }
+  .contactLinkText {
+    font-size: 0.8em;
+
+  }
+} */
