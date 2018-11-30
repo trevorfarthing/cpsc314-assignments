@@ -3,7 +3,6 @@
   - Open youtube videos in section or in a modal
   - Fix parallax scrolling lag, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
   - Add cool page transitions
-  - Change contact form to have better transitions on focus
   - Add music player to each of the song cards
   - Add drop down menu to MUSIC link to select 'Streaming' or 'Videos'
   - Add indicator under link for current page user is on
@@ -212,6 +211,13 @@ i {
 .inlineLink:hover {
   text-decoration: underline;
 }
+.socialIcon {
+  font-size: 1.75em;
+  margin-right: 10px;
+  top:1px;
+  vertical-align: middle;
+  position: relative;
+}
 
 /*
 ************************
@@ -298,11 +304,7 @@ HOME PAGE STYLES
   bottom:0;
 }
 .fa-facebook, .fa-linkedin {
-  font-size: 1.75em;
-  margin-right: 10px;
-  top:1px;
-  vertical-align: middle;
-  position: relative;
+
 }
 #mailLink {
   position: relative;
@@ -353,49 +355,45 @@ CONTACT PAGE STYLES
   width:100%;
   padding-top: 35px;
 }
-input, textarea {
-  margin: 10px 0px 20px;
-  padding:10px;
-  border-radius: 5px;
-  font-size:1em;
-  display: block;
-  width:100%;
-  box-sizing: border-box;
-  border: none;
-  color:white;
-  box-shadow: 0px 0px 2px white;
-}
-textarea {
-  resize:none;
-}
-label {
-  color:white;
-}
-input, textarea {
-  background: rgba(0,0,0,0.3);
-}
-input[type="submit"] {
-  width: 200px;
-  margin:0 auto;
-  background: rgba(0,0,0,0.5);
-  transition:box-shadow 0.5s ease 0s;
-}
-input[type="submit"]:hover {
-  box-shadow: 0px 0px 5px 2px white;
-  cursor:pointer;
-}
-input::placeholder, textarea::placeholder {
-  color:#a8a8a8;
-}
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px 2px white;
-}
 .contactHeading {
   color:white;
   text-shadow: 2px 5px 10px black;
   text-align: center;
   padding:20px 0px 40px;
+}
+.contactLink {
+  color:white;
+  height:50px;
+  padding:20px;
+  text-align: center;
+  position: relative;
+}
+.contactIcon {
+  color:white;
+  font-size: 50px;
+  float:left;
+  transition: all 0.5s ease;
+}
+.contactIcon:hover {
+  cursor: pointer;
+  text-shadow: 2px 5px 10px black;
+}
+.contactIcon:hover ~ .contactLinkText {
+  text-shadow: 2px 5px 10px black;
+}
+.contactLinkText {
+  font-size:20px;
+  letter-spacing: 5px;
+  line-height: 50px;
+  float:right;
+  transition: all 0.5s ease;
+}
+.contactLinkText:hover {
+  cursor: pointer;
+  text-shadow: 2px 5px 10px black;
+}
+.contactLink:hover + .contactIcon {
+  text-shadow: 2px 5px 10px black;
 }
 
 /*
