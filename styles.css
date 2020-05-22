@@ -370,7 +370,12 @@ CONTACT PAGE STYLES
 }
 .mainContactBlock {
   width:100%;
-  padding-top: 32px;
+  /* padding-top: 32px; */
+}
+.contactHeading {
+  color: white;
+  text-align: center;
+  padding-bottom: 40px;
 }
 .contactPhoto {
   width:70%;
@@ -382,7 +387,7 @@ CONTACT PAGE STYLES
   display:flex;
 }
 .contactLinkBlock {
-  padding:100px;
+  padding:40px;
   display: flex;
   justify-content: space-around;
 }
@@ -394,15 +399,13 @@ CONTACT PAGE STYLES
   height: 80px;
 }
 .contactLinkIcon {
-  /* left: 25px; */
   position: relative;
   transition: all 0.5s ease;
 }
 .contactLinkIcon:hover {
   transform: scale(1.1);
 }
-.contactHeading {
-  color:white;
+.contactLink:hover + .contactIcon {
   text-shadow: 2px 5px 10px black;
   text-align: center;
   padding:20px 0px 100px;
@@ -414,7 +417,6 @@ CONTACT PAGE STYLES
   width:90px;
 }
 #contactLinkIconFB {
-  /* left: 20px; */
   position: relative;
   transition: all 0.5s ease;
 }
@@ -423,7 +425,6 @@ CONTACT PAGE STYLES
   color: #4267B2;
 }
 #contactLinkIconYT {
-  /* left: 15px; */
   position: relative;
   transition: all 0.5s ease;
 }
@@ -465,6 +466,10 @@ ABOUT PAGE STYLES
   margin:0px;
   width:50%;
   display: inline-block;
+}
+.aboutFooter {
+  position: fixed;
+  bottom: 0;
 }
 .profileImage {
   background-size: 600px;
@@ -736,7 +741,6 @@ MUSIC DROP DOWN MENU STYLES
   /* z-index: 1000; */
   display: inline;
 }
-
 /* Dropdown button */
 .dropdown .dropbtn {
   border: none;
@@ -744,7 +748,6 @@ MUSIC DROP DOWN MENU STYLES
   background-color: inherit;
   font-family: inherit;
 }
-
 /* Dropdown content (hidden by default) */
 .dropdownContent {
   display: none;
@@ -756,7 +759,6 @@ MUSIC DROP DOWN MENU STYLES
   left: 460px;
   margin-top: 4px;
 }
-
 /* Links inside the dropdown */
 .dropdownContent a {
   float: none;
@@ -768,16 +770,13 @@ MUSIC DROP DOWN MENU STYLES
   font-size:1.2em;
   letter-spacing: 5px;
 }
-
 .transparent {
   opacity: 0.5;
 }
-
 /* Add a grey background color to dropdown links on hover */
 .dropdownContent a:hover {
   background-color: #3c424d;
 }
-
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdownContent {
   display: block;
@@ -797,8 +796,6 @@ SLIDE OUT MENU STYLES
 #menuButton:hover {
   cursor: pointer;
 }
-
-/* The side navigation menu */
 .sidenav {
   height: 100%;
   width: 0;
@@ -811,12 +808,9 @@ SLIDE OUT MENU STYLES
   padding-top: 60px;
   transition: 0.5s;
 }
-
-/* The navigation menu links */
 .sidenav a {
   padding: 20px;
   text-decoration: none;
-  /* font-size: 25px; */
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -824,16 +818,12 @@ SLIDE OUT MENU STYLES
   font-size:1.2em;
   letter-spacing: 5px;
 }
-
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
 .sideNavLink:hover {
   background-color: #2a2e36;
 }
-
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -841,7 +831,6 @@ SLIDE OUT MENU STYLES
   font-size: 36px;
   margin-left: 50px;
 }
-
 
 /*
 ************************
@@ -1068,3 +1057,26 @@ MEDIA QUERIES
     width: 36px;
   }
 }
+@media all and (max-width:400px) {
+  .contactIcon {
+    font-size: 40px;
+  }
+  .contactLink {
+    padding:10px;
+  }
+  .contactLinkText {
+    font-size: 1em;
+  }
+}
+/* @media all and (max-height:670px) {
+  .contactIcon {
+    font-size: 30px;
+  }
+  .contactLink {
+    padding:5px;
+  }
+  .contactLinkText {
+    font-size: 0.8em;
+
+  }
+} */
