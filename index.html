@@ -6,7 +6,8 @@
     <title>Trevor Farthing</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
+    <script src="slide-menu.js"></script>
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -14,13 +15,33 @@
 
   </head>
   <body style="overflow-x:hidden;">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
     <div class="homeOuterBlock" id="backgroundBlock">
       <header class="fadeIn animateDelay">
         <nav class="homeNav">
-          <a href="index.html" class="navLink">HOME</a>
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
+          <a href="index.html" class="navLink" style="border-bottom: 1px solid white;">HOME</a>
           <a href="aboutMe.html" class="navLink">ABOUT ME</a>
           <a href="projects.html" class="navLink">PROJECTS</a>
-          <a href="music.html" class="navLink">MUSIC</a>
+          <div class="dropdown">
+            <a href="music.html" class="navLink dropbtn">
+              MUSIC &#x25BE;
+            </a>
+            <div class="dropdownContent transparent">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
           <a href="contact.html" class="navLink">CONTACT</a>
         </nav>
       </header>
@@ -30,10 +51,10 @@
       </div>
       <footer class="fadeIn animateDelay homeFooter">
         <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
-          <i class="fab fa-linkedin socialIcon"></i>
+          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
         </a>
         <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
-          <i class="fab fa-facebook socialIcon"></i>
+          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
         </a>
         <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
           trevordfarthing@gmail.com

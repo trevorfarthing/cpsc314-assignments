@@ -6,7 +6,7 @@
     <title>Music - Trevor Farthing</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -16,21 +16,112 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="node_modules/howler/dist/howler.js"></script>
     <script src="music.js"></script>
+    <script src="slide-menu.js"></script>
   </head>
   <body>
-    <div class="aboutOuterBlock" id="backgroundBlock">
+    <div id="sideNavMenu" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" class="sideNavLink">HOME</a>
+      <a href="aboutMe.html" class="sideNavLink">ABOUT ME</a>
+      <a href="projects.html" class="sideNavLink">PROJECTS</a>
+      <a href="music.html" class="sideNavLink">SONGS</a>
+      <a href="videos.html" class="sideNavLink">VIDEOS</a>
+      <a href="contact.html" class="sideNavLink">CONTACT</a>
+    </div>
+    <div class="musicOuterBlock" id="backgroundBlock">
       <header>
         <nav>
+          <span id="menuButton" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </span>
           <a href="index.html" class="navLink grayShadow">HOME</a>
           <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
           <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
-          <a href="music.html" class="navLink grayShadow">MUSIC</a>
+          <div class="dropdown">
+            <a href="music.html" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </a>
+            <div class="dropdownContent">
+              <a href="music.html">SONGS</a>
+              <a href="videos.html">VIDEOS</a>
+            </div>
+          </div>
           <a href="contact.html" class="navLink grayShadow">CONTACT</a>
         </nav>
       </header>
       <div class="mainContent fadeIn">
         <div class="containBlockWide">
           <div class="musicBox">
+            <span class="songBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play-circle playIcon" id="PuzzlePieces"></i>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Puzzle Pieces
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play-circle playIcon" id="FlyAway"></i>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Fly Away
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/shades_of_green.png">
+              <div class="playButton">
+                <i class="fas fa-play-circle playIcon" id="Dawn"></i>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  Dawn
+                </span>
+                <a class="musicLink spotifyLink" href="https://open.spotify.com/artist/7ep0M30TYlHUVnJsDwiLGe?si=7pgd7m8ERMyG1zImlQ7cTA">
+                  <i class="fab fa-spotify"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/my_own_worst_enemy.jpg">
+              <div class="playButton">
+                <i class="fas fa-play-circle playIcon" id="MyOwnWorstEnemy"></i>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  My Own Worst Enemy (Remix)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
+            <span class="songBox">
+              <img class="albumArt" src="assets/dms.jpg">
+              <div class="playButton">
+                <i class="fas fa-play-circle playIcon" id="DMs"></i>
+              </div>
+              <div class="songCaption">
+                <span class="songTitle">
+                  DMs (#SELFIE Pt. II)
+                </span>
+                <a class="musicLink soundcloudLink" href="https://soundcloud.com/nerves_music">
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+              </div>
+            </span>
             <span class="songBox">
               <img class="albumArt" src="assets/lastchance.jpg">
               <div class="playButton">
@@ -204,12 +295,12 @@
         </div>
       </div>
 
-      <footer>
+      <footer class="transparentFooter">
         <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
-          <i class="fab fa-linkedin" class="socialIcon"></i>
+          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
         </a>
         <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
-          <i class="fab fa-facebook" class="socialIcon"></i>
+          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
         </a>
         <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
           trevordfarthing@gmail.com

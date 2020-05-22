@@ -1,14 +1,26 @@
 /* TODO:
   - Make nav header fixed at top after scrolling down a certain amount
-  - Open youtube videos in section or in a modal
-  - Fix parallax scrolling lag, go here:https://keithclark.co.uk/articles/pure-css-parallax-websites
-  - Add cool page transitions
-  - Change contact form to have better transitions on focus
   - Add music player to each of the song cards
-  - Add drop down menu to MUSIC link to select 'Streaming' or 'Videos'
-  - Add indicator under link for current page user is on
-  - Photoshop "About" page photo to fade out to black on bottom
-  - Add slide out menu for nav on mobile
+  - Add to Music page: Wolves remix (newest one), Post Rock Shit, Dawn, and Fly Away, maybe Memento, another mashup/Fetish remix?
+  - Use actual javascript from Inter.Codes for typewriter effect
+  - fix responsiveness for contact page on certain small screens (height of contactOuterBlock should be changed) and when height is changed
+  - fix responsiveness of dropdown menu on smaller screens (only really for tablets)
+  - Home and Contact page do not work with small heights and if phone is rotated sideways
+  - videos are too big at certain screen sizes, change the outer block size
+  - animate drop down menu to "scroll out"
+  - home page slide out nav button needs to be fixed - on left side, maybe with a transparent div behind so user can see it
+  - Music dropdown needs to work on click as well for iPad Pro (1024px)
+
+  To make header fixed while scrolling add these:
+header {
+  position: fixed;
+  z-index: 1000;
+  background: #1e2126;
+  width: 100%;
+}
+nav {
+  position: fixed;
+}
  */
 html, body {
   font-family: khularegular;
@@ -212,6 +224,9 @@ i {
 .inlineLink:hover {
   text-decoration: underline;
 }
+.transparentFooter {
+  background:rgba(0,0,0,0.2);
+}
 
 /*
 ************************
@@ -221,9 +236,9 @@ HOME PAGE STYLES
 
 .homeOuterBlock {
   height:100%;
-  background:url("assets/joshuatree2.jpg");
+  background:url("assets/snow.jpg");
   background-color:black;
-  background-position:0px -275px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -251,6 +266,12 @@ HOME PAGE STYLES
   -moz-animation-delay: 4s;
   -o-animation-delay:4s;
   animation-delay: 4s;
+}
+.shortAnimateDelay {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay:2s;
+  animation-delay: 2s;
 }
 .homeNav {
   position: absolute;
@@ -284,10 +305,13 @@ HOME PAGE STYLES
 }
 .homeText {
   color:white;
-  position:absolute;
-  right: 5%;
-  top:50%;
-  transform: translate(-25%,-50%);
+  position: relative;
+  text-align: center;
+  margin-top: 300px;
+  /* position:absolute; */
+  /* right: 5%; */
+  /* top:50%; */
+  /* transform: translate(-25%,-50%); */
 }
 .homeHeading {
   text-shadow: 2px 5px 10px black;
@@ -297,7 +321,7 @@ HOME PAGE STYLES
   position:fixed;
   bottom:0;
 }
-.fa-facebook, .fa-linkedin {
+#linkedInFooterIcon, #facebookFooterIcon {
   font-size: 1.75em;
   margin-right: 10px;
   top:1px;
@@ -334,68 +358,91 @@ CONTACT PAGE STYLES
 ************************
 */
 .contactOuterBlock {
-  height:100%;
-  background:url("assets/beach.jpg");
-  background-color:black;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height:calc(100vh - 128px);
+  background-color:#1e2126;
+  display:flex;
+  align-items: center;
 }
 .containBlock {
   position: relative;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 500px;
 }
 .mainContactBlock {
-  /* position: absolute;
-  top:50%;
-  transform: translateY(-50%); */
   width:100%;
-  padding-top: 35px;
+  padding-top: 32px;
 }
-input, textarea {
-  margin: 10px 0px 20px;
-  padding:10px;
-  border-radius: 5px;
-  font-size:1em;
-  display: block;
-  width:100%;
-  box-sizing: border-box;
-  border: none;
-  color:white;
-  box-shadow: 0px 0px 2px white;
+.contactPhoto {
+  width:70%;
+  text-align: center;
+  margin: 0 auto;
 }
-textarea {
-  resize:none;
+.contactPhotoBlock {
+  padding:20px;
+  display:flex;
 }
-label {
-  color:white;
+.contactLinkBlock {
+  padding:100px;
+  display: flex;
+  justify-content: space-around;
 }
-input, textarea {
-  background: rgba(0,0,0,0.3);
+.contactLink {
+  color: white;
+  font-size: 5em;
+  /* width: 15%; */
+  width: 70px;
+  height: 80px;
 }
-input[type="submit"] {
-  width: 200px;
-  margin:0 auto;
-  background: rgba(0,0,0,0.5);
-  transition:box-shadow 0.5s ease 0s;
+.contactLinkIcon {
+  /* left: 25px; */
+  position: relative;
+  transition: all 0.5s ease;
 }
-input[type="submit"]:hover {
-  box-shadow: 0px 0px 5px 2px white;
-  cursor:pointer;
-}
-input::placeholder, textarea::placeholder {
-  color:#a8a8a8;
-}
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px 2px white;
+.contactLinkIcon:hover {
+  transform: scale(1.1);
 }
 .contactHeading {
   color:white;
   text-shadow: 2px 5px 10px black;
   text-align: center;
-  padding:20px 0px 40px;
+  padding:20px 0px 100px;
+}
+#contactLinkFB {
+  width: 80px;
+}
+#contactLinkYT {
+  width:90px;
+}
+#contactLinkIconFB {
+  /* left: 20px; */
+  position: relative;
+  transition: all 0.5s ease;
+}
+#contactLinkIconFB:hover {
+  transform: scale(1.1);
+  color: #4267B2;
+}
+#contactLinkIconYT {
+  /* left: 15px; */
+  position: relative;
+  transition: all 0.5s ease;
+}
+#contactLinkIconYT:hover {
+  transform: scale(1.1);
+  color: #FF0000;
+}
+#contactLinkIconLI:hover {
+  color: #2867B2;
+}
+#contactLinkIconINSTA:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  /* Also define standard property for compatibility */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#contactLinkIconEMAIL:hover {
+  color:#a8a8a8;
 }
 
 /*
@@ -406,6 +453,7 @@ ABOUT PAGE STYLES
 
 .aboutOuterBlock {
   background: #1e2126;
+  height: 100%;
 }
 .mainContent {
   width:100%;
@@ -458,8 +506,8 @@ ABOUT PAGE STYLES
 }
 #logo1:hover {
   cursor: pointer;
-  filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%);
-  -webkit-filter: sepia() saturate(10000%) hue-rotate(160deg) contrast(90%);
+  filter: sepia() saturate(10000%) hue-rotate(110deg) contrast(90%);
+  -webkit-filter: sepia() saturate(10000%) hue-rotate(110deg) contrast(90%);
 }
 #logo2 {
   margin-left:8px;
@@ -483,7 +531,11 @@ ABOUT PAGE STYLES
   filter: invert(0%);
 }
 #responsiveImage {
-  display:none;
+  display: none;
+}
+#aboutImage {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
 /*
@@ -496,6 +548,9 @@ MUSIC PAGE STYLES
   position: relative;
   margin: 0 auto;
   max-width: 800px;
+}
+.musicOuterBlock {
+  background: #1e2126;
 }
 .musicBox {
   position: relative;
@@ -532,6 +587,9 @@ MUSIC PAGE STYLES
 .soundcloudLink:hover {
   color:#ff7700;
 }
+.spotifyLink:hover {
+  color: #1DB954;
+}
 .bandcampLink:hover {
   color:#477987;
 }
@@ -564,41 +622,36 @@ PROJECTS PAGE STYLES
   background:url("assets/industry.jpeg");
   height:100%;
   width:100%;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: fixed;
 }
 .projectsHeading {
   margin-bottom: 70px;
 }
-.projImage1, .projImage2, .projImage3, .projImage4 {
-  position: relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .projImage1 {
-  background-image: url("assets/joshuatree3.jpeg");
-  /* background-image: url("assets/joshuatree.jpg"); */
-  min-height: 100%;
+  /* min-height: 300px; */
+  padding:100px;
 }
-.projImage2 {
-  background-image: url("assets/code1.jpeg");
-  min-height: 400px;
+.projectPhoto {
+  width:30%;
+  text-align: center;
+  transition: all 0.5s ease;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
-.projImage3 {
-  background-image: url("assets/industry.jpeg");
-  min-height: 400px;
+.projectPhoto:hover {
+  transform:scale(1.1);
 }
-.projImage4 {
-  background-image: url("assets/music_production2.jpeg");
-  min-height:400px;
+.projectPhotos {
+  padding:50px 0px;
+  position: relative;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .caption {
-  position: absolute;
-  top: 50%;
+  position: relative;
   width: 100%;
   text-align: center;
   color: white;
@@ -617,57 +670,205 @@ PROJECTS PAGE STYLES
   font-size: 1.4em;
   color:white;
   transition: all 0.5s ease;
+  max-width: 400px;
+  margin: 0 auto;
 }
 .subtitle:hover {
-  font-size:1.8em;
+  transform:scale(1.1);
 }
 .projSectionTitle {
   background-color:transparent;
   color: white;
   letter-spacing: 10px;
   height:100%;
+  text-align: center;
+  /* border-bottom: 1px solid white; */
+  padding-bottom: 5px;
+  margin: 0px 10px 0px;
+  box-shadow: 0 8px 8px -8px white;
 }
 .projSectionInfo {
   color:#ddd;
-  background-color:#282E34;
   text-align:center;
-  padding:20px 50px;
+  padding:50px 0px 0px 0px;
   text-align: justify;
-}
-.projImage2 > .caption > .projSectionTitle,
-.projImage3 > .caption > .projSectionTitle,
-.projImage4 > .caption > .projSectionTitle
-{
-    transition: all 0.2s ease;
-}
-.projImage2:hover > .caption > .projSectionTitle,
-.projImage3:hover > .caption > .projSectionTitle,
-.projImage4:hover > .caption > .projSectionTitle
-{
-  letter-spacing:20px;
-}
-.projectsFooter {
-  background: #282E34;
 }
 #overview {
-  color: #777;
-  background-color:white;
+  color: white;
+  background-color:gray;
   text-align:center;
-  padding:50px 80px;
+  padding:50px 80px 20px 80px;
   text-align: justify;
+  box-shadow: 0px 0px 10px 5px white;
 }
+
+/*
+***************************
+VIDEO PAGE STYLES
+***************************
+*/
+.videoBlock {
+  text-align: center;
+  position: relative;
+}
+.iFrameContainer {
+  position: relative;
+  width:100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 100px;
+}
+.iFrameContainer iframe {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+}
+
+/*
+***************************
+MUSIC DROP DOWN MENU STYLES
+***************************
+*/
+/* The dropdown container */
+.dropdown {
+  /* z-index: 1000; */
+  display: inline;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #2a2e36;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: 460px;
+  margin-top: 4px;
+}
+
+/* Links inside the dropdown */
+.dropdownContent a {
+  float: none;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size:1.2em;
+  letter-spacing: 5px;
+}
+
+.transparent {
+  opacity: 0.5;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdownContent a:hover {
+  background-color: #3c424d;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+/*
+************************
+SLIDE OUT MENU STYLES
+************************
+*/
+#menuButton {
+  color: white;
+  float:left;
+  font-size: 1.5em;
+  display: none;
+}
+#menuButton:hover {
+  cursor: pointer;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1e2126;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 20px;
+  text-decoration: none;
+  /* font-size: 25px; */
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+  font-size:1.2em;
+  letter-spacing: 5px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sideNavLink:hover {
+  background-color: #2a2e36;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
 
 /*
 ************************
 MEDIA QUERIES
 ************************
 */
+@media all and (min-width:1200px) and (min-height:1100px) {
+  .aboutFooter {
+    position: fixed;
+    bottom: 0;
+  }
+}
+@media all and (min-width: 1035px) and (max-width:1200px) and (min-height:1264px) {
+  .aboutFooter {
+    position: fixed;
+    bottom: 0;
+  }
+}
+@media all and (min-width:1100px) and (max-width:1200px) and (min-height:1188px) and (max-height:1264px) {
+  .aboutFooter {
+    position: fixed;
+    bottom: 0;
+  }
+}
 @media all and (max-width:1024px) {
   .homeOuterBlock {
     background-position: center;
-  }
-  .projImage1, .projImage2, .projImage3, .projImage4 {
-      background-attachment: scroll;
   }
   .profileImage {
     width:65%;
@@ -683,6 +884,9 @@ MEDIA QUERIES
   }
   .aboutHeading h1 {
     text-align: center;
+  }
+  .aboutFooter {
+    position: relative;
   }
   .homeText {
     left:50%;
@@ -708,12 +912,23 @@ MEDIA QUERIES
 @media all and (max-width:805px) {
   nav {
     position: relative;
-    right:0px;
+    right: 0px;
     margin: 0 auto;
     text-align: center;
+    height:50px;
   }
-  .mainContactBlock {
-    position:relative;
+  .navLink {
+    display: none;
+  }
+  .dropdownContent {
+    left: 416px;
+  }
+  .dropdownContent a {
+    font-size: 0.8em;
+    padding:10px;
+  }
+  #menuButton {
+    display: inline;
   }
 }
 @media all and (max-width:768px) {
@@ -721,8 +936,17 @@ MEDIA QUERIES
     width:45%;
   }
 }
-
-@media all and (max-width:767px) {
+@media all and (max-width:768px) and (max-height:1300px) {
+  .homeOuterBlock {
+    background-position: 40%;
+  }
+}
+@media all and (max-width:840px) {
+  .projSectionInfo {
+    padding:20px 40px;
+  }
+}
+@media all and (max-width:768px) {
   .songBox {
     width:45%;
   }
@@ -731,6 +955,20 @@ MEDIA QUERIES
   }
   .contactHeading {
     padding:20px 20px 40px;
+  }
+  .contactLink {
+    width: 42px;
+    height: 48px;
+    font-size: 3em;
+  }
+  #contactLinkFB {
+    width: 48px;
+  }
+  #contactLinkYT {
+    width: 54px;
+  }
+  .contactLinkBlock {
+    padding: 40px 20px 20px;
   }
   .navLink {
     font-size:0.8em;
@@ -797,10 +1035,36 @@ MEDIA QUERIES
   .skill {
     width:100%;
   }
-  /* Set to default so hover state doesn't change anything */
-  .projImage2:hover > .caption > .projSectionTitle,
-  .projImage3:hover > .caption > .projSectionTitle,
-  .projImage4:hover > .caption > .projSectionTitle {
-    letter-spacing: 10px;
+}
+@media all and (min-width: 768px) and (max-height:1000px) {
+  #contactFooter {
+    position: relative;
+  }
+}
+@media all and (max-width: 520px) {
+  .projectsParagraph {
+    letter-spacing: 0px;
+  }
+  .projImage1 {
+    padding: 50px;
+  }
+}
+@media all and (max-width: 400px) and (max-height: 620px) {
+  .homeFooter {
+    position: relative;
+    margin-top: 60px;
+  }
+}
+@media all and (max-width: 400px) {
+  .contactLink {
+    font-size: 2em;
+    width: 28px;
+    height: 32px;
+  }
+  #contactLinkFB {
+    width: 32px;
+  }
+  #contactLinkYT {
+    width: 36px;
   }
 }
