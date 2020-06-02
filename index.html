@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="slide-menu.js"></script>
+    <script src="typewriter.js"></script>
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
   </head>
-  <body style="overflow-x:hidden;">
+  <body style="overflow-x:hidden;" onload="startTypewriter()">
     <div id="sideNavMenu" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html" class="sideNavLink" style="color:white;">HOME</a>
@@ -25,7 +26,7 @@
       <a href="contact.html" class="sideNavLink">CONTACT</a>
     </div>
     <div class="homeOuterBlock" id="backgroundBlock">
-      <header class="fadeIn animateDelay">
+      <header class="fadeIn animateDelay homeHeader">
         <nav class="homeNav">
           <span id="menuButton" onclick="openNav()">
             <i class="fas fa-bars"></i>
@@ -46,8 +47,15 @@
         </nav>
       </header>
       <div class="homeText">
-        <h1 class="homeHeading typewriter"> Hi, I'm Trevor. </h1>
-        <h3 class="homeSubHeading typewriter" style="animation-delay:3s;">I like to create. </h3>
+        <div class="homeTextContainer">
+          <h1 class="homeHeading typewriter"> Hi, I'm Trevor. </h1>
+          <!-- <h3 class="homeSubHeading typewriter" style="animation-delay:3s;">I like to create. </h3> -->
+          <h2 class="mainHeadings">
+            <a href="" class="typewrite">
+            </a>
+            <span class="wrap"></span>
+          </h2>
+        </div>
       </div>
       <footer class="fadeIn animateDelay homeFooter">
         <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">

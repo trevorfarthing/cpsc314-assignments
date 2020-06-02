@@ -5,7 +5,7 @@
   - Use actual javascript from Inter.Codes for typewriter effect
   - fix responsiveness for contact page on certain small screens (height of contactOuterBlock should be changed) and when height is changed
   - fix responsiveness of dropdown menu on smaller screens (only really for tablets)
-  - Home and Contact page do not work with small heights and if phone is rotated sideways
+  - Home and Contact page do not work with small heights and if phone is rotated sideways - also need to fix centering of the content - should be directly in center of page (measurements need to change when header and footer get smaller)
   - videos are too big at certain screen sizes, change the outer block size
   - animate drop down menu to "scroll out"
   - home page slide out nav button needs to be fixed - on left side, maybe with a transparent div behind so user can see it
@@ -129,24 +129,6 @@ ANIMATIONS
   }
 }
 
-/* Typewriter animation */
-@-webkit-keyframes typewriter {
-  from { width: 0 }
-  to { width: 100% }
-}
-@-moz-keyframes typewriter {
-  from { width: 0 }
-  to { width: 100% }
-}
-@-o-keyframes typewriter {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes typewriter {
-  from { width: 0 }
-  to { width: 100% }
-}
-
 /* Slide from right animation */
 @-webkit-keyframes slide-from-right {
   100% {
@@ -179,6 +161,7 @@ header {
 nav {
   position: absolute;
   right: 50px;
+  top: 34px;
 }
 h1 {
   font-size: 4em;
@@ -233,7 +216,9 @@ i {
 HOME PAGE STYLES
 ************************
 */
-
+.homeHeader {
+  background: rgba(0, 0, 0, 0.2);
+}
 .homeOuterBlock {
   height:100%;
   background:url("assets/snow.jpg");
@@ -305,13 +290,15 @@ HOME PAGE STYLES
 }
 .homeText {
   color:white;
-  position: relative;
   text-align: center;
-  margin-top: 300px;
-  /* position:absolute; */
-  /* right: 5%; */
-  /* top:50%; */
-  /* transform: translate(-25%,-50%); */
+  /* margin-top: 300px; */
+  height: calc(100% - 128px);
+  display: flex;
+  align-items: center;
+}
+.homeTextContainer {
+  width:100%;
+  position: relative;
 }
 .homeHeading {
   text-shadow: 2px 5px 10px black;
@@ -332,25 +319,16 @@ HOME PAGE STYLES
   position: relative;
   top:2px;
 }
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  /*margin: 0 auto;*/
-  letter-spacing: 2px;
-  animation:
-    typewriter 1.5s steps(30, end),
-    blink-caret .5s step-end infinite;
-
-  -webkit-animation-delay: 3s;
-  -moz-animation-delay: 3s;
-  -o-animation-delay:3s;
-  animation-delay: 1.5s;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  width:0px;
+.mainHeadings {
+  position:relative;
+  padding-top:20px;
+  color: white;
 }
+.typewrite {
+  color: white;
+  text-decoration: none;
+}
+
 
 /*
 ************************
@@ -376,6 +354,7 @@ CONTACT PAGE STYLES
   color: white;
   text-align: center;
   padding-bottom: 40px;
+  text-shadow: 2px 5px 10px black;
 }
 .contactPhoto {
   width:70%;
@@ -877,12 +856,6 @@ MEDIA QUERIES
   .aboutFooter {
     position: relative;
   }
-  .homeText {
-    left:50%;
-    transform:translate(0%,0%);
-    width:100%;
-    transform:translateX(-50%);
-  }
   .homeHeading {
     margin:0 auto;
     text-align: center;
@@ -1069,6 +1042,9 @@ MEDIA QUERIES
   }
   .contactLinkText {
     font-size: 1em;
+  }
+  .mainHeadings {
+    font-size: 2em;
   }
 }
 /* @media all and (max-height:670px) {
