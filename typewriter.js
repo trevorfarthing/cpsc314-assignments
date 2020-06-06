@@ -1,20 +1,13 @@
-let typewriterOptions = [
-  'I like to create.',
-  'I like to code.',
-  'I like to produce.',
-  'I like to brainstorm.',
-  'I like to collaborate.'
-];
-let currOption = '';
+
 let period = 2000;
 let loopNum = 0;
 let typewriterText = '';
 let isDeleting = false;
 
 
-function tick(element) {
-  var i = loopNum % typewriterOptions.length;
-  var fullTxt = typewriterOptions[i];
+function tick(element, doBackSpace, typewriterOptions) {
+  let i = loopNum % typewriterOptions.length;
+  let fullTxt = typewriterOptions[i];
 
   if (isDeleting) {
     typewriterText = fullTxt.substring(0, typewriterText.length - 1);
@@ -24,8 +17,8 @@ function tick(element) {
 
   element.innerHTML = '<span class="wrap">'+typewriterText+'</span>';
 
-  var that = this;
-  var delta = 200 - Math.random() * 100;
+  let that = this;
+  let delta = 200 - Math.random() * 100;
 
   if (isDeleting) { delta /= 2; }
 
@@ -38,19 +31,27 @@ function tick(element) {
     delta = 1000;
   }
 
-  setTimeout(function() {
-    that.tick(element);
-  }, delta);
+  if(isDeleting) {
+    if(doBackSpace)
+    {
+      setTimeout(function() {
+        that.tick(element, doBackSpace, typewriterOptions);
+      }, delta);
+    }
+  }
+  else {
+    setTimeout(function() {
+      that.tick(element, doBackSpace, typewriterOptions);
+    }, delta);
+  }
 }
 
 function startTypewriter() {
-    var typewriterEl = document.querySelector('.typewrite');
-    tick(typewriterEl);
 
-    // INJECT CSS
-    var css = document.createElement("style");
+  setTimeout(function() {
+    let css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = `.typewrite > .wrap {
+    css.innerHTML = `.typewriter1 ~ .wrap {
                         border-right: 0.08em solid lightgray;
                         animation: blink 0.75s step-end infinite;
                         -webkit-animation: blink 0.75s step-end infinite;
@@ -62,4 +63,40 @@ function startTypewriter() {
                       @-moz-keyframes blink { 50% {border-right: 0.08em solid transparent}}
                       @-o-keyframes blink { 50% {border-right: 0.08em solid transparent}}`;
     document.body.appendChild(css);
+    let mainHeadingElement = document.querySelector('.typewriter1');
+    tick(mainHeadingElement, false, [ "Hi, I'm Trevor." ]);
+    // document.querySelector('#wrap1').style["border-right"] = "initial";
+  }, 2000);
+
+  setTimeout(function() {
+    let css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = `.typewriter2 ~ .wrap {
+                        border-right: 0.08em solid lightgray;
+                        animation: blink 0.75s step-end infinite;
+                        -webkit-animation: blink 0.75s step-end infinite;
+                        -moz-animation: blink 0.75s step-end infinite;
+                        -o-animation: blink 0.75s step-end infinite;
+                      }
+                      .typewriter1 ~ .wrap {
+                        border-right: initial;
+                        animation: initial;
+                        -webkit-animation: initial;
+                        -moz-animation: initial;
+                        -o-animation: initial;
+                      }`;
+    document.body.appendChild(css);
+    loopNum = 0;
+    isDeleting = false;
+    typewriterText = '';
+    let subheadingElement = document.querySelector('.typewriter2');
+    let options = [
+      'I like to create.',
+      'I like to code.',
+      'I like to produce.',
+      'I like to brainstorm.',
+      'I like to collaborate.'
+    ];
+    tick(subheadingElement, true, options);
+  }, 5000);
 }
