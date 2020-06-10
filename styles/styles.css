@@ -1,7 +1,5 @@
 /* TODO:
   - Make nav header fixed at top after scrolling down a certain amount
-  - Add music player to each of the song cards
-  - Add to Music page: Wolves remix (newest one), Post Rock Shit, Dawn, and Fly Away and Puzzle Pieces, maybe Memento, another mashup/Fetish remix?
   - fix responsiveness for contact page on certain small screens (height of contactOuterBlock should be changed) and when height is changed
   - fix responsiveness of dropdown menu on smaller screens (only really for tablets)
   - Home and Contact page do not work with small heights and if phone is rotated sideways - also need to fix centering of the content - should be directly in center of page (measurements need to change when header and footer get smaller)
@@ -9,6 +7,7 @@
   - animate drop down menu to "scroll out"
   - home page slide out nav button needs to be fixed - on left side, maybe with a transparent div behind so user can see it
   - Music dropdown needs to work on click as well for iPad Pro (1024px)
+  - Fix size of circle slider at different screen sizes - also possible only use one Howler player - just set src for different songs
 
   To make header fixed while scrolling add these:
 header {
@@ -550,39 +549,44 @@ MUSIC PAGE STYLES
   flex-wrap: wrap;
 }
 .songBox {
-  width:30%;
-  background-color:black;
-  margin-bottom:40px;
+  width: 30%;
+  background-color: black;
+  margin-bottom: 40px;
   transition: all 0.5s ease;
   position: relative;
 }
-.songBox:hover {
-  cursor: pointer;
-  transform:scale(1.1);
+.songParent {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: black;
+  transition: all 0.5s ease;
 }
 .albumArt {
   width:100%;
+  transition: all 0.5s ease;
 }
 .songCaption {
-  font-size:0.7em;
-  color:#a8a8a8;
-  padding-left:10px;
+  font-size: 0.7em;
+  color: #a8a8a8;
+  padding-left: 10px;
+  transition: all 0.5s ease;
 }
 .musicLink {
-  color:#a8a8a8;
+  color: #a8a8a8;
   transition: all 0.2s ease;
   font-size: 2.5em;
   float:right;
   margin-right: 10px;
 }
 .soundcloudLink:hover {
-  color:#ff7700;
+  color: #ff7700;
 }
 .spotifyLink:hover {
   color: #1DB954;
 }
 .bandcampLink:hover {
-  color:#477987;
+  color: #477987;
 }
 .songTitle {
   position: relative;
@@ -590,18 +594,25 @@ MUSIC PAGE STYLES
 }
 .playButton {
   position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
-  color:rgba(0, 0, 0, 0.5);
+  left: 50%;
+  top: 50%;
+  color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: all 0.5s ease;
 }
 .playIcon {
-  font-size:100px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size:60px;
+  z-index: 10;
 }
-.songBox:hover > .playButton {
-  opacity:1;
+.playIcon:hover {
+  cursor: pointer;
+}
+.circleSlider {
+  position: absolute;
+  transform:translate(-50%, -50%);
+  transition: all 0.5s ease;
 }
 
 /*

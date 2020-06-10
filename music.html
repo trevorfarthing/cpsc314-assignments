@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Music - Trevor Farthing</title>
+    <link href="https://cdn.jsdelivr.net/npm/round-slider@1.6.0/dist/roundslider.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
@@ -13,10 +14,12 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- JavaScript -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="node_modules/howler/dist/howler.js"></script>
-    <script src="music.js"></script>
-    <script src="slide-menu.js"></script>
+    <script src="script/music.js"></script>
+    <script src="script/slideMenu.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.6.0/dist/roundslider.min.js"></script>
   </head>
   <body>
     <div id="sideNavMenu" class="sidenav">
@@ -55,7 +58,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/shades_of_green.png">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="PuzzlePieces"></i>
+                <i class="fas fa-play playIcon" id="PuzzlePieces"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -69,7 +73,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/shades_of_green.png">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="FlyAway"></i>
+                <i class="fas fa-play playIcon" id="FlyAway"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -83,7 +88,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/shades_of_green.png">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="Dawn"></i>
+                <i class="fas fa-play playIcon" id="Dawn"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -97,7 +103,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/daylight.JPG">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="Daylight"></i>
+                <i class="fas fa-play playIcon" id="Daylight"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -111,7 +118,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/wolves.JPG">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="WolvesRemix"></i>
+                <i class="fas fa-play playIcon" id="WolvesRemix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -125,7 +133,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/memento.JPG">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="Memento"></i>
+                <i class="fas fa-play playIcon" id="Memento"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -139,7 +148,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/fetish.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="FetishRemix"></i>
+                <i class="fas fa-play playIcon" id="FetishRemix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -153,7 +163,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/dms.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="DMs"></i>
+                <i class="fas fa-play playIcon" id="DMs"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -167,7 +178,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/lastchance.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="LastChance"></i>
+                <i class="fas fa-play playIcon" id="LastChance"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -181,7 +193,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/feeling_this.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="FeelingThisIntro"></i>
+                <i class="fas fa-play playIcon" id="FeelingThisIntro"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -195,7 +208,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/my_own_worst_enemy.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="MyOwnWorstEnemyRemix"></i>
+                <i class="fas fa-play playIcon" id="MyOwnWorstEnemyRemix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -209,7 +223,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/heavy.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="HeavyRemix"></i>
+                <i class="fas fa-play playIcon" id="HeavyRemix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -223,7 +238,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/dungeon.jpeg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="Dungeon"></i>
+                <i class="fas fa-play playIcon" id="Dungeon"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -237,7 +253,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/competition_mix.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="CompetitionMix"></i>
+                <i class="fas fa-play playIcon" id="CompetitionMix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -251,7 +268,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/boys_of_summer.jpeg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="BoysofSummerRemix2"></i>
+                <i class="fas fa-play playIcon" id="BoysofSummerRemix2"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -265,7 +283,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/pumpkin_spice_mix.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="PumpkinSpiceMix"></i>
+                <i class="fas fa-play playIcon" id="PumpkinSpiceMix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -279,7 +298,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/chillax_mix.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="ChillaxMix"></i>
+                <i class="fas fa-play playIcon" id="ChillaxMix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -293,7 +313,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/clocks.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="ClocksRemix"></i>
+                <i class="fas fa-play playIcon" id="ClocksRemix"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -307,7 +328,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/hands_of_fools.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="TheSun"></i>
+                <i class="fas fa-play playIcon" id="TheSun"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -321,7 +343,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/hands_of_fools.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="HandsOfFools"></i>
+                <i class="fas fa-play playIcon" id="HandsOfFools"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -335,7 +358,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/lost_at_sea.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="Damaging"></i>
+                <i class="fas fa-play playIcon" id="Damaging"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -349,7 +373,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/lost_at_sea.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="LostAtSea"></i>
+                <i class="fas fa-play playIcon" id="LostAtSea"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -363,7 +388,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/sonance.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="SheWasMine"></i>
+                <i class="fas fa-play playIcon" id="SheWasMine"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -377,7 +403,8 @@
             <span class="songBox">
               <img class="albumArt" src="assets/sonance.jpg">
               <div class="playButton">
-                <i class="fas fa-play-circle playIcon" id="SweatherWeather"></i>
+                <i class="fas fa-play playIcon" id="SweatherWeather"></i>
+                <div class="circleSlider"></div>
               </div>
               <div class="songCaption">
                 <span class="songTitle">
@@ -388,21 +415,19 @@
                 </a>
               </div>
             </span>
-          </div>
         </div>
       </div>
-
-      <footer class="transparentFooter">
-        <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
-          <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
-        </a>
-        <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
-          <i class="fab fa-facebook" id="facebookFooterIcon"></i>
-        </a>
-        <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
-          trevordfarthing@gmail.com
-        </a>
-      </footer>
     </div>
+    <footer class="transparentFooter">
+      <a href="https://www.linkedin.com/in/trevor-farthing-6a9820108" class="socialLink">
+        <i class="fab fa-linkedin" id="linkedInFooterIcon"></i>
+      </a>
+      <a href="https://www.facebook.com/trevor.farthing" class="socialLink">
+        <i class="fab fa-facebook" id="facebookFooterIcon"></i>
+      </a>
+      <a href="mailto:trevordfarthing@gmail.com" class="socialLink" id="mailLink">
+        trevordfarthing@gmail.com
+      </a>
+    </footer>
   </body>
 </html>
