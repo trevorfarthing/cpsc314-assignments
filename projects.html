@@ -6,6 +6,7 @@
     <title>Projects - Trevor Farthing</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="script/slideMenu.js"></script>
 
@@ -13,7 +14,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body style="background:#1e2126;">
+  <body class="blackBackground">
     <div id="sideNavMenu" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html" class="sideNavLink">HOME</a>
@@ -31,13 +32,16 @@
         <span class="mobileNavText">
           TREVOR FARTHING - PROJECTS
         </span>
-        <a href="index.html" class="navLink grayShadow">HOME</a>
+        <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
         <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
         <a href="projects.html" class="navLink grayShadow" style="border-bottom: 1px solid white;">PROJECTS</a>
         <div class="dropdown">
-          <a href="music.html" class="navLink grayShadow dropbtn">
+          <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
             MUSIC &#x25BE;
           </a>
+          <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </span>
           <div class="dropdownContent">
             <a href="music.html">SONGS</a>
             <a href="videos.html">VIDEOS</a>
@@ -76,7 +80,8 @@
             C-DEngine developer topics.
             <br><br>
             I even received the opportunity to represent C-Labs internationally at Hannover Messe in Germany, one of the largest industrial-technology trade conventions in the world.
-            View what C-Labs is up to <a class="inlineLink" href="https://www.c-labs.com/index.html">here</a>.
+            See what C-Labs is up to <a class="inlineLink" href="https://www.c-labs.com/index.html">here</a> and try out their (newly open-source) software that I contributed to
+            <a class="inlineLink" href="https://github.com/TRUMPF-IoT/C-DEngine">here</a>.
           </p>
         </div>
       </section>
@@ -96,9 +101,10 @@
             cloud-based development environment, version control system, and project management suite that aims to
             produce collaboration and visibility into all aspects of the development process.
             <br><br>
-            As part of the LCS team, I focused primarily on frontend design and development, building the components of the UI and interaction
+            As part of the LCS team, I focused primarily on frontend design and development in Vue.js, building the components of the UI and interaction
             with our backend API.  After graduation, I took on a larger role as Secretary of Inter.Codes LLC while continuing to contribute
-            to the development of the user interface.
+            to the development of the user interface.  Although we are currently in the process of revamping the site, check out our progress
+            <a class="inlineLink" href="http://dev.inter.codes">here</a>.
 
           </p>
         </div>
@@ -128,7 +134,7 @@
             rock, blues, jazz, electronic, and acoustic.  Listen to our album <a class="inlineLink" href="https://open.spotify.com/album/0VBnoK0Ecq29VBjGpOj4sd?si=n5PxHdIcQdqnlKG14EXhRQ">here</a>.
             <br><br>
             In addition to solely producing music, I've filmed and edited a collection of guitar covers on YouTube, with
-            one of my videos grossing 24,000 views.  Check out my channel
+            one of my videos grossing 25,000 views.  Check out my channel
             <a class="inlineLink" href="https://www.youtube.com/user/tfavre">here</a>.
           </p>
         </div>

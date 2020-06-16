@@ -6,6 +6,7 @@
     <title>Trevor Farthing</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="script/slideMenu.js"></script>
     <script src="script/typewriter.js"></script>
@@ -34,13 +35,16 @@
           <span class="mobileNavText">
             TREVOR FARTHING
           </span>
-          <a href="index.html" class="navLink" style="border-bottom: 1px solid white;">HOME</a>
+          <a href="index.html" class="navLink" style="border-bottom: 1px solid white;" id="homeNavLink">HOME</a>
           <a href="aboutMe.html" class="navLink">ABOUT ME</a>
           <a href="projects.html" class="navLink">PROJECTS</a>
           <div class="dropdown">
-            <a href="music.html" class="navLink dropbtn">
+            <a href="music.html" id="musicNavLink" class="navLink dropbtn">
               MUSIC &#x25BE;
             </a>
+            <span id="musicNavSpan" class="navLink dropbtn">
+              MUSIC &#x25BE;
+            </span>
             <div class="dropdownContent" id="homeDropDown">
               <a href="music.html">SONGS</a>
               <a href="videos.html">VIDEOS</a>
@@ -52,12 +56,12 @@
       <div class="homeText">
         <div class="homeTextContainer">
           <h1 class="homeHeading typewriter">
-            <a href="" class="typewrite typewriter1">
+            <a class="typewrite typewriter1">
             </a>
             <span class="wrap" id="wrap1"></span>
           </h1>
           <h2 class="mainHeadings">
-            <a href="" class="typewrite typewriter2">
+            <a class="typewrite typewriter2">
             </a>
             <span class="wrap"></span>
           </h2>

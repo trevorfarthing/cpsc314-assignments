@@ -6,14 +6,21 @@
     <title>Videos - Trevor Farthing</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="script/slideMenu.js"></script>
+    <script>
+    function sendToYouTube(url) {
+      if(window.innerWidth <= 768 || document.documentElement.clientWidth <= 768)
+        window.location.href = url;
+    }
+    </script>
 
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body>
+  <body class="blackBackground">
     <div id="sideNavMenu" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html" class="sideNavLink">HOME</a>
@@ -32,13 +39,16 @@
           <span class="mobileNavText">
             TREVOR FARTHING - VIDEOS
           </span>
-          <a href="index.html" class="navLink grayShadow">HOME</a>
+          <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
           <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
           <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
           <div class="dropdown">
-            <a href="music.html" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+            <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
               MUSIC &#x25BE;
             </a>
+            <span id="musicNavSpan" class="navLink grayShadow dropbtn" style="border-bottom: 1px solid white;">
+              MUSIC &#x25BE;
+            </span>
             <div class="dropdownContent">
               <a href="music.html">SONGS</a>
               <a href="videos.html">VIDEOS</a>
@@ -53,18 +63,22 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ey3LMqF9i8c?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"></iframe>
           </div>
           <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/vRCbXsHc4tA')"></div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/vRCbXsHc4tA?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="iFrameContainer">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/m5s9qF5g_ZI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/50zmcISRgJA')"></div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/50zmcISRgJA?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/PZHV0FOZgVw')"></div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/PZHV0FOZgVw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="iFrameContainer">
+            <div class="iFrameCover" onclick="sendToYouTube('https://youtu.be/v8V3Nq87aoU')"></div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/v8V3Nq87aoU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="iFrameContainer">
@@ -75,6 +89,9 @@
           </div>
           <div class="iFrameContainer">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/QYzTDOyj5eA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="iFrameContainer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Tp1pnfPRmVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>

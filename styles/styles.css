@@ -1,13 +1,9 @@
 /* TODO:
-  - fix responsiveness for contact page on certain small screens (height of contactOuterBlock should be changed) and when height is changed
-  - fix responsiveness of dropdown menu on smaller screens (only really for tablets)
-  - Home and Contact page do not work with small heights and if phone is rotated sideways - also need to fix centering of the content - top line should be directly in center of page (shift down by size of the lower line)
-  - animate drop down menu to "scroll out"
-  - Music dropdown needs to work on click as well for iPad Pro (1024px)
-  - Fix size of circle slider at different screen sizes - could be slightly bigger for phones/tablets
-  - Photo of me on About Me page can be bigger on phones and also center my face - might have to crop the actual photo or make duplicate for mobile
-  - Update music links to match the soundcloud links or wherever they're stored
-  - Consider making the heading on About page an h2 or smaller font on mobile
+  - occasionally hover state isn't getting loaded on songs page
+  - slide out menu will not unfocus after appearing on iOS Safari
+  - slide down music menu is not positioned correctly in some browsers on landscape rotation
+  - Remove hover states from links on mobile?
+  - Add GitHub link to contact page?
  */
 html, body {
   font-family: khularegular;
@@ -28,7 +24,6 @@ FONTS
          url('../fonts/Khula/khula-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'khulaextrabold';
@@ -39,7 +34,6 @@ FONTS
          url('../fonts/Khula/khula-extrabold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'khulalight';
@@ -50,7 +44,6 @@ FONTS
          url('fonts/Khula/khula-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'khularegular';
@@ -61,7 +54,6 @@ FONTS
          url('../fonts/Khula/khula-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'khulasemibold';
@@ -72,7 +64,6 @@ FONTS
          url('../fonts/Khula/khula-semibold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /*
@@ -210,6 +201,9 @@ i {
   height: 26px;
   line-height: 26px;
 }
+.blackBackground {
+  background: #1e2126;
+}
 
 /*
 ************************
@@ -259,7 +253,6 @@ HOME PAGE STYLES
   animation-delay: 2s;
 }
 .homeNav {
-  /* position: absolute; */
   right: -200px;
   /* Fade animations */
   -webkit-animation: slide-from-right 2s 1;
@@ -286,7 +279,7 @@ HOME PAGE STYLES
   transition: all 0.5s ease;
 }
 .navLink:hover {
-  text-shadow: 2px 5px 10px black;
+  text-shadow: 2px 5px 5px black;
 }
 #homeDropDown {
   background: rgba(42, 46, 54, 0.5);
@@ -410,7 +403,7 @@ CONTACT PAGE STYLES
   position: relative;
   transition: all 0.5s ease;
 }
-#contactLinkIconFB:hover {
+#contactLinkIconFB:hover, #contactLinkIconFB:active {
   transform: scale(1.1);
   color: #4267B2;
 }
@@ -732,6 +725,14 @@ VIDEO PAGE STYLES
   width: 100%;
   height:100%;
 }
+.iFrameCover {
+  position:absolute;
+  background-color:transparent;
+  width:100%;
+  height:100%;
+  z-index:1;
+  display: none;
+}
 
 /*
 ***************************
@@ -759,6 +760,7 @@ MUSIC DROP DOWN MENU STYLES
   z-index: 1;
   left: 460px;
   margin-top: 4px;
+  height: 118px;
 }
 /* Links inside the dropdown */
 .dropdownContent a {
@@ -778,9 +780,8 @@ MUSIC DROP DOWN MENU STYLES
 .dropdownContent a:hover {
   background-color: #3c424d;
 }
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdownContent {
-  display: block;
+#musicNavSpan {
+  display: none;
 }
 
 /*
@@ -799,15 +800,15 @@ SLIDE OUT MENU STYLES
 }
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 100%;
   position: fixed;
   z-index: 2;
   top: 0;
-  left: 0;
+  left: -100%;
   background-color: #1e2126;
   overflow-x: hidden;
   padding-top: 60px;
-  transition: 0.5s;
+  transition: left 0.7s ease;
 }
 .sidenav a {
   padding: 20px;
@@ -834,33 +835,20 @@ SLIDE OUT MENU STYLES
   font-size: 36px;
   margin-left: 50px;
 }
+#sideNavMenu {
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
 /*
 ************************
 MEDIA QUERIES
 ************************
 */
-@media all and (min-width:1200px) and (min-height:1100px) {
-  .aboutFooter {
-    position: fixed;
-    bottom: 0;
-  }
-}
-@media all and (min-width: 1035px) and (max-width:1200px) and (min-height:1264px) {
-  .aboutFooter {
-    position: fixed;
-    bottom: 0;
-  }
-}
-@media all and (min-width:1100px) and (max-width:1200px) and (min-height:1188px) and (max-height:1264px) {
-  .aboutFooter {
-    position: fixed;
-    bottom: 0;
-  }
-}
 @media all and (max-width:1024px) {
   .homeOuterBlock {
-    background-position: center;
+    background-position: 40%;
   }
   .profileImage {
     width:65%;
@@ -885,6 +873,28 @@ MEDIA QUERIES
   #desktopImage {
     display:none;
   }
+  #musicNavSpan {
+    display: inline;
+    cursor: default;
+  }
+  #musicNavLink {
+    display: none;
+  }
+}
+@media all and (min-width: 806px) and (max-width:1024px) {
+  header {
+    text-align: center;
+    box-sizing: border-box;
+  }
+  nav {
+    position: static;
+  }
+  #homeNavLink {
+    margin-left: 0px;
+  }
+  .dropdownContent {
+    left: calc(50vw + 84px);
+  }
 }
 @media all and (max-width:805px) {
   nav {
@@ -901,28 +911,14 @@ MEDIA QUERIES
   .navLink {
     display: none;
   }
-  .dropdownContent {
-    left: 416px;
-  }
-  .dropdownContent a {
-    font-size: 0.8em;
-    padding:10px;
-  }
   #menuButton {
     display: inline;
   }
   .mobileNavText {
     display: inline;
   }
-}
-@media all and (max-width:768px) {
-  .songBox {
-    width:45%;
-  }
-}
-@media all and (max-width:768px) and (max-height:1300px) {
-  .homeOuterBlock {
-    background-position: 40%;
+  #musicNavSpan {
+    display: none;
   }
 }
 @media all and (max-width:840px) {
@@ -1014,6 +1010,12 @@ MEDIA QUERIES
   .homeHeading {
     padding-top: 65px;
   }
+  #contactTitle {
+    font-size: 2.5em;
+  }
+  .dropdownContent {
+    font-size: 0.8em;
+  }
 }
 @media all and (max-width:600px) {
   .songBox {
@@ -1025,10 +1027,50 @@ MEDIA QUERIES
   #responsiveImage {
     width: 80%;
   }
+  #aboutHeadingTitle {
+    font-size: 2.5em;
+  }
+  .listEntry {
+    line-height: 25px;
+  }
+  .iFrameCover {
+    display: block;
+  }
+  .contactHeading {
+    padding-bottom: 20px;
+  }
+  .contactLinkBlock {
+    padding-top: 20px;
+  }
 }
 @media all and (min-width: 768px) and (max-height:1000px) {
   #contactFooter {
     position: relative;
+  }
+}
+@media all and (max-height: 600px) {
+  #contactFooter {
+    position: relative;
+  }
+  .contactOuterBlock {
+    height: auto;
+  }
+  .contactHeading {
+    margin-top: 100px;
+  }
+  .contactLinkBlock {
+    padding-bottom: 100px;
+  }
+}
+@media all and (max-height: 830px) and (min-width: 805px) {
+  .contactOuterBlock {
+    height: auto;
+  }
+  .contactHeading {
+    margin-top: 100px;
+  }
+  .contactLinkBlock {
+    padding-bottom: 100px;
   }
 }
 @media all and (max-width: 520px) {
@@ -1067,5 +1109,35 @@ MEDIA QUERIES
   }
   .mainHeadings {
     font-size: 2em;
+  }
+}
+@media all and (max-width: 1023px) and (orientation: landscape) {
+  .navLink {
+    display: inline;
+  }
+  #menuButton {
+    display: none;
+  }
+  .mobileNavText {
+    display: none;
+  }
+  #musicNavSpan {
+    display: inline;
+  }
+  .iFrameCover {
+    display: block;
+  }
+  header {
+    text-align: center;
+    box-sizing: border-box;
+  }
+  nav {
+    position: static;
+  }
+  #homeNavLink {
+    margin-left: 0px;
+  }
+  .dropdownContent {
+    left: calc(50vw + 63px);
   }
 }

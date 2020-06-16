@@ -6,6 +6,7 @@
     <title>About - Trevor Farthing</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="script/slideMenu.js"></script>
 
@@ -13,7 +14,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body style="background:#1e2126;">
+  <body class="blackBackground">
     <div id="sideNavMenu" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html" class="sideNavLink">HOME</a>
@@ -32,13 +33,16 @@
           <span class="mobileNavText">
             TREVOR FARTHING - ABOUT ME
           </span>
-          <a href="index.html" class="navLink grayShadow">HOME</a>
+          <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
           <a href="aboutMe.html" class="navLink grayShadow" style="border-bottom: 1px solid white;">ABOUT ME</a>
           <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
           <div class="dropdown">
-            <a href="music.html" class="navLink grayShadow dropbtn">
+            <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
               MUSIC &#x25BE;
             </a>
+            <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+              MUSIC &#x25BE;
+            </span>
             <div class="dropdownContent">
               <a href="music.html">SONGS</a>
               <a href="videos.html">VIDEOS</a>
@@ -52,25 +56,26 @@
           <img src="assets/cutout.png" id="aboutImage" style="width: 100%">
         </span>
         <span class="aboutHeading">
-          <h1>Creatively solving problems and producing results.</h1>
+          <h1 id="aboutHeadingTitle">Creatively solving problems and producing results.</h1>
           <p>
-            Hi, my name is Trevor.  I'm a software developer and music producer who loves to
+            Hi, my name is Trevor.  I'm a software developer and musician who loves to
             help creative projects come to life.  I've worked with an industrial IoT startup, a
             collaborative development company, a university fundraising team, and a variety of other projects.
             I'm proficient in a collection of programming languages, as well as the art of recording and
-            mixing music in digital audio workstations.
+            mixing music in digital audio workstations. Download my
+            <a class="inlineLink" href="./assets/TrevorFarthingResume.pdf" download>resume</a> for more information.
           </p>
           <h5 class="aboutSubHeading">Skills</h5>
           <div class="skillsList">
             <span class="skill">.NET Development</span>
             <span class="skill">Web Development</span>
-            <span class="skill">Agile Processes</span>
             <span class="skill">Music Production</span>
             <span class="skill">Video Editing</span>
-            <span class="skill">Database Design</span>
-            <span class="skill">Containerization</span>
-            <span class="skill">Technical Documentation</span>
-            <span class="skill">Fundraising</span>
+            <span class="skill">Docker/Kubernetes</span>
+            <span class="skill">HTML/CSS/Javascript</span>
+            <span class="skill">SQL Server, InfluxDB, Oracle</span>
+            <span class="skill">C#, Java, C++, Python</span>
+            <span class="skill">Vue.js</span>
           </div>
         </span>
 

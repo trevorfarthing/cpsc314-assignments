@@ -6,6 +6,7 @@
     <title>Contact - Trevor Farthing</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/af35f2bda3.js" crossorigin="anonymous"></script>
     <script src="script/slideMenu.js"></script>
 
@@ -13,7 +14,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body style="background:#1e2126;">
+  <body class="blackBackground">
     <div id="sideNavMenu" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="index.html" class="sideNavLink">HOME</a>
@@ -31,13 +32,16 @@
         <span class="mobileNavText">
           TREVOR FARTHING - CONTACT
         </span>
-        <a href="index.html" class="navLink grayShadow">HOME</a>
+        <a href="index.html" class="navLink grayShadow" id="homeNavLink">HOME</a>
         <a href="aboutMe.html" class="navLink grayShadow">ABOUT ME</a>
         <a href="projects.html" class="navLink grayShadow">PROJECTS</a>
         <div class="dropdown">
-          <a href="music.html" class="navLink grayShadow dropbtn">
+          <a href="music.html" id="musicNavLink" class="navLink grayShadow dropbtn">
             MUSIC &#x25BE;
           </a>
+          <span id="musicNavSpan" class="navLink grayShadow dropbtn">
+            MUSIC &#x25BE;
+          </span>
           <div class="dropdownContent">
             <a href="music.html">SONGS</a>
             <a href="videos.html">VIDEOS</a>
@@ -49,7 +53,7 @@
     <div class="contactOuterBlock">
       <section class="mainContactBlock fadeIn">
         <div class="contactHeading">
-          <h2>Let's get in touch.</h2>
+          <h1 id="contactTitle">Let's get in touch.</h1>
         </div>
        <div class="containBlock">
          <div class="contactPhotoBlock">

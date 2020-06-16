@@ -28,17 +28,31 @@ let trackMap = {
 };
 let source = '';
 let updateSlider = false;
+let sliderRadius = 75;
+
+// Resize the radius of slider for smaller screens
+$(window).on('resize', function() {
+  if($(window).width() <= 768)
+    sliderRadius = 95;
+  else
+    sliderRadius = 75;
+  $('.circleSlider').roundSlider('option', 'radius', sliderRadius);
+});
 
 $(document).ready(function(e) {
 
   var widget = SC.Widget('sc-player');
   widget.bind(SC.Widget.Events.READY, function() {
+
+    if($(window).width() <= 768) {
+      sliderRadius = 95;
+    }
     // Create each circle slider
     $(".circleSlider").roundSlider({
       sliderType: "min-range",
       handleShape: "round",
       width: 15,
-      radius: 75,
+      radius: sliderRadius,
       value: 0,
       showTooltip: false,
       svgMode: true,
@@ -66,7 +80,11 @@ $(document).ready(function(e) {
     // On change of slider (click somewhere else on the slider) seek sound to the position
     $(".circleSlider").on("change", function(e) {
       let icon = $(this).siblings('.playIcon');
-      widget.seekTo(e.value * 1000);
+      widget.getCurrentSoundIndex(function(index) {
+        if(index === trackMap[icon[0].id]) {
+          widget.seekTo(e.value * 1000);
+        }
+      });
     });
 
     // On start drag, if current sound is playing then don't update the slider on PLAY_PROGRESS
